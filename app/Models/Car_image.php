@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Car_image extends Model
 {
     use HasFactory;
+
+    public function car() {
+        return $this->belongsTo(Car::class);
+    }
+
+    public $guarded = [];
 }
