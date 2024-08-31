@@ -21,3 +21,10 @@ class Rentals extends Model
     public $guarded = [];
 
 }
+//---------------------------------------soft delete----------------------------------//
+class Rental extends Model
+{
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+}

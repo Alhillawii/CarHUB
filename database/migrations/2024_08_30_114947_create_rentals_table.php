@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('rentals', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->constrained();//make cascadeondelete on controller//
-            $table->foreignIdFor(Car::class)->constrained(); //make cascadeondelete on controller//
+            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(Car::class)->constrained(); 
             $table->date('rental_start_date');
             $table->date('rental_end_date');
             $table->string('status');

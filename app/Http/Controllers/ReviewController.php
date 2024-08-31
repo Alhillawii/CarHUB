@@ -34,9 +34,10 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Review $review)
+    public function show($id)
     {
-        //
+        $carReview = Review::findOrFail($id);
+        return view('car_reviews.show', compact('carReview'));
     }
 
     /**
@@ -58,8 +59,11 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Review $review)
+    public function destroy($id)
     {
-        //
+        $carReview = Review::findOrFail($id);
+        $carReview->delete();  // سيتم حذف المراجعة باستخدام الـ Soft Delete
+
+        return redirect()->route('reviews.index')->with('success', 'Car Review deleted successfully.');
     }
 }

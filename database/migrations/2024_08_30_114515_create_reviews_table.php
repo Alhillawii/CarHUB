@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('reviews');
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Car::class)->constrained()->cascadeOnDelete();
-            $table->softDeletes();
+            $table->softDeletes();  // هذا السطر يضيف عمود deleted_at
             $table->timestamps();
         });
     }
