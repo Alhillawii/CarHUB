@@ -105,9 +105,9 @@
         </li>
 
         <li class="menu-item">
-            <a href="cards-basic.html" class="menu-link">
+            <a href="{{route ('dashboard.testimonials.index')" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
-                <div data-i18n="Basic">Cards</div>
+                <div data-i18n="Basic">Testimonials</div>
             </a>
         </li>
 
