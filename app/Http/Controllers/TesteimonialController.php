@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Testeimonial;
 use Illuminate\Http\Request;
 
+
 class TesteimonialController extends Controller
 {
     /**
@@ -12,7 +13,8 @@ class TesteimonialController extends Controller
      */
     public function index()
     {
-        //
+        $testimonials = Testeimonial::withTrashed()->with('User')->get();
+        return view('dashboard.testimonials.index', compact('testimonials'));
     }
 
     /**
@@ -34,9 +36,10 @@ class TesteimonialController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Testeimonial $testeimonial)
+    public function show($id)
     {
-        //
+        $testimonial = Testeimonial::withTrashed()->findOrFail($id);
+        return view('dashboard.testimonials.show', compact('testimonial'));
     }
 
     /**
@@ -58,8 +61,11 @@ class TesteimonialController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Testeimonial $testeimonial)
+    public function destroy($id)
     {
-        //
+        $testimonial = Testeimonial::findOrFail($id);
+        $testimonial->delete();
+
+        return redirect("testimonials");
     }
 }
