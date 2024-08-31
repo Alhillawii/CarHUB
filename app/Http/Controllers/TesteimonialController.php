@@ -66,6 +66,6 @@ class TesteimonialController extends Controller
         $testimonial = Testeimonial::findOrFail($id);
         $testimonial->delete();
 
-        return redirect()->route('dashboard.testimonials.index')->with('success', 'Testimonial deleted successfully.');
+        return redirect("testimonials");
     }
 }
