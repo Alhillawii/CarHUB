@@ -12,7 +12,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        $brands = Brand::all();
+        return view('dashboard.brand.index', compact('brands'));
     }
 
     /**
@@ -20,7 +21,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.brand.create');
     }
 
     /**
@@ -28,38 +29,86 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $logo = $request->file('logo');
+        if ($logo) {
+            $logoName = time() . '.' . $logo->getClientOriginalExtension();
+            $logo->move(public_path('uploads/brands'), $logoName);
+        } else {
+            $logoName = null;
+        }
+
+        Brand::create([
+            'name' => $request->name,
+            'logo' => $logoName,
+        ]);
+
+        return redirect()->route('dashboard.brand.index')->with('success', 'Brand created successfully.');
     }
+
 
     /**
      * Display the specified resource.
      */
-    public function show(Brand $brand)
+    public function show($id)
     {
-        //
-    }
+        $brand = Brand::findOrFail($id);
+        return view('dashboard.brand.show', compact('brand'));    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Brand $brand)
+    public function edit($id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+        return view('dashboard.brand.edit', compact('brand'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $request->validate([
+            'name' => 'required',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $brand = Brand::findOrFail($id);
+
+        $logo = $request->file('logo');
+        if ($logo) {
+            $logoName = time() . '.' . $logo->getClientOriginalExtension();
+            $logo->move(public_path('uploads/brands'), $logoName);
+            if ($brand->logo) {
+                unlink(public_path('uploads/brands/' . $brand->logo));
+            }
+        } else {
+            $logoName = $brand->logo;
+        }
+
+        $brand->update([
+            'name' => $request->name,
+            'logo' => $logoName,
+        ]);
+
+        return redirect()->route('dashboard.brand.index')->with('success', 'Brand updated successfully.');    }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Brand $brand)
+    public function destroy($id)
     {
-        //
+        
+        $brand = Brand::findOrFail($id);
+        if ($brand->logo) {
+            unlink(public_path('uploads/brands/' . $brand->logo));
+        }
+        $brand->delete();
+        return redirect()->route('dashboard.brand.index')->with('success', 'Brand deleted successfully.');
     }
 }

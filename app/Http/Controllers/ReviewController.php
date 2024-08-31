@@ -12,7 +12,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $reviews = Review::with('user', 'car')->paginate(10);
+        return view('dashboard.review.index', compact('reviews'));
     }
 
     /**
@@ -20,7 +21,8 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.review.create');
+
     }
 
     /**
@@ -28,16 +30,32 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'rating' => 'required|string|max:5',
+            'reviews' => 'required|string',
+            'user_id' => 'required|exists:users,id',
+            'car_id' => 'required|exists:cars,id',
+        ]);
+
+        Review::create($request->all());
+
+        return redirect()->route('dashboard.review.index')->with('success', 'Review created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Review $review)
+    public function show($id)
     {
-        //
+        $review = Review::find($id);
+
+        if (!$review) {
+            return redirect()->route('dashboard.review.index')->with('error', 'Review not found.');
+        }
+
+        return view('dashboard.review.show', compact('review'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -58,8 +76,16 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Review $review)
+    public function destroy($id)
     {
-        //
+        $review = Review::find($id);
+
+        if (!$review) {
+            return redirect()->route('dashboad.review.index')->with('error', 'Review not found.');
+        }
+
+        $review->delete();
+
+        return redirect()->route('dashboard.review.index')->with('success', 'Review deleted successfully.');
     }
 }

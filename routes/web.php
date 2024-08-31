@@ -2,9 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TesteimonialController;
-// use App\Http\Controllers\Auth;
-use App\Http\Controllers\UserController;
+// use App\Http\Controllers\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ReviewController;
 
+use App\Http\Controllers\UserController;
+use App\Models\Review;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,3 +51,39 @@ Route::delete('dashboard/users/{user}', [UserController::class , "destroy"])->na
 
 
 Route::resource('testimonials', TesteimonialController::class);
+
+
+
+/////////////////////////////////// brand //////////////
+
+
+
+
+Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
+
+Route::get('/brands/create', [BrandController::class, 'create'])->name('brands.create');
+Route::post('/brands', [BrandController::class, 'store'])->name('brands.store');
+
+Route::get('/brands/{id}/edit', [BrandController::class, 'edit'])->name('brands.edit');
+Route::put('/brands/{id}', [BrandController::class, 'update'])->name('brands.update');
+
+
+Route::get('/brands/{id}', [BrandController::class, 'show'])->name('brands.show');
+
+Route::delete('/brands/{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
+
+////////////////////////////////////
+
+Route::get('reviews', [ReviewController::class, 'index'])->name('reviews.index');
+
+Route::get('reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
+
+Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
+Route::get('reviews/{id}', [ReviewController::class, 'show'])->name('reviews.show');
+
+Route::get('reviews/{id}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+
+Route::put('reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
+
+Route::delete('reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');

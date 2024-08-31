@@ -110,11 +110,16 @@
                 <div data-i18n="Basic">Testimonials</div>
             </a>
         </li>
-
         <li class="menu-item">
-            <a href="cards-basic.html" class="menu-link">
+            <a href="{{route("reviews.index")}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
-                <div data-i18n="Basic">Cards</div>
+                <div data-i18n="Basic">Review</div>
+            </a>
+        </li> 
+        <li class="menu-item">
+            <a href="{{route("brands.index")}}" class="menu-link">
+                <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
+                <div data-i18n="Basic">Brand</div>
             </a>
         </li>        <!-- Layouts -->
 
