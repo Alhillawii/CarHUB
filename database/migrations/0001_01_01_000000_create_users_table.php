@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->tinyInteger('role');
             $table->string('mobile');
+            $table->string('image')->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
