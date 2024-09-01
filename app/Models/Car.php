@@ -10,36 +10,29 @@ class Car extends Model
 {
     use HasFactory , SoftDeletes;
 
-    public function brand()
-    {
+    public function barnd(){
         return $this->belongsTo(Brand::class);
     }
 
-    public function engine()
-    {
+    public function engine(){
         return $this->belongsTo(Engine::class);
     }
 
-    public function transmission()
-    {
+    public function transmission(){
         return $this->belongsTo(Transmission::class);
     }
 
-    public function rentals()
-    {
+    public function rentals(){
         return $this->hasMany(Rentals::class);
     }
 
-    public function reviews()
-    {
+    public function reviews(){
         return $this->hasMany(Review::class);
     }
 
-    public function images()
-    {
+    public function images(){
         return $this->hasMany(Car_image::class);
     }
 
-   
     protected $guarded = [];
 }
