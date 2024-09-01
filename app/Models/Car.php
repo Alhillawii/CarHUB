@@ -35,6 +35,6 @@ class Car extends Model
         return $this->hasMany(Car_image::class);
     }
 
-    public $guarded = [];
+    protected $guarded = [];
 
 }
