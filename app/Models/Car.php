@@ -10,7 +10,8 @@ class Car extends Model
 {
     use HasFactory , SoftDeletes;
 
-    public function brand(){
+    public function brand()
+    {
         return $this->belongsTo(Brand::class);
     }
 
