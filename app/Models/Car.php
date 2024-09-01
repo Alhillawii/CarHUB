@@ -10,8 +10,7 @@ class Car extends Model
 {
     use HasFactory , SoftDeletes;
 
-    public function brand()
-    {
+    public function barnd(){
         return $this->belongsTo(Brand::class);
     }
 
@@ -35,6 +34,5 @@ class Car extends Model
         return $this->hasMany(Car_image::class);
     }
 
-    public $guarded = [];
-
+    protected $guarded = [];
 }
