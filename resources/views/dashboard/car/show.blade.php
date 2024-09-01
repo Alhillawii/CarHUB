@@ -9,7 +9,6 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">Car Name: {{$car->brand->name." ".$car->name}}</h5>
-
             <p class="card-text "><b>Car Brand:</b> {{$car->brand->name}}</p>
             <p class="card-text "><b>Year:</b> {{$car->year}}</p>
             <p class="card-text "><b>Engine Type:</b> {{$car->engine->type}}</p>
