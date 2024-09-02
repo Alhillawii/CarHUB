@@ -2,9 +2,23 @@
 @section('title','create user')
 
 @section('content')
+    <div class="text-left">
+        <button class="btn ">
+            <a href="{{ route('user.index') }}" class="btn btn-primary p-2 float-start">Back to List</a>
+        </button>
+    </div>
     <div class="col-md-12">
         <div class="card">
             <h5 class="card-header">Add User</h5>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{route('user.store')}}"  method="POST" enctype="multipart/form-data">
                 @csrf
             <div class="card-body demo-vertical-spacing demo-only-element">

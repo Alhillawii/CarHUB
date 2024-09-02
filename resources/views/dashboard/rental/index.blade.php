@@ -1,46 +1,48 @@
 @extends('dashboard.layout.master')
-@section('title','car')
+@section('title','rental')
 
 @section('content')
-    <div class="text-left">
-        <a href="{{route('car.create')}}" class="btn btn-success waves-effect waves-light">+Add Cars</a>
-    </div>
+
     <div class="card">
-        <h5 class="card-header">Cars Table</h5>
+        <h5 class="card-header">Rentals Table</h5>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>
                 <tr>
                     <th>#</th>
-
-                    <th>Brand</th>
-                    <th>Name</th>
-                    <th>Year</th>
-                    <th>Engine</th>
-                    <th>Transmission</th>
+                    <th>User</th>
+                    <th>Car</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
                     <th>Created At</th>
-                    <th>Image</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                @foreach($cars as $car)
-
-
+                @foreach($rentals as $rental)
                     <tr>
-
                         <td>{{$loop->iteration}}</td>
-                        <td> {{$car->brand->name}}</td>
-                        <td>{{$car->name}}</td>
-                        <td>{{$car->year}}</td>
-                        <td> {{$car->engine->type}}</td>
-                        <td> {{$car->transmission->type}}</td>
-                        <td>{{$car->created_at->format('y-m-d')}}</td>
-                        <td> <a href="{{route('car.upload.images', $car->id)}}" class="btn btn-outline-warning btn-sm">Add / View </a></td>
+                        <td> {{$rental->user->name}}</td>
+                        <td>{{$rental->car->name}}</td>
+                        <td>{{$rental->rental_start_date}}</td>
+                        <td>{{$rental->rental_end_date}}</td>
+                        <td>  @if ($rental->status=='Reserved')
+                                <span class="badge rounded-pill bg-label-success me-1">Reserved</span>
+                            @elseif($rental->status=='Pending')
+                                <span class="badge rounded-pill bg-label-warning me-1">Pending</span>
+                            @elseif($rental->status=='Active')
+                                <span class="badge rounded-pill bg-label-primary me-1">Active</span>
+                            @elseif($rental->status=='Canceled')
+                                <span class="badge rounded-pill bg-label-danger me-1">Canceled</span>
+                            @else
+                                <span class="badge rounded-pill bg-label-danger me-1">Rejected</span>
+                            @endif</td>
+                        <td>{{$rental->created_at->format('y-m-d')}}</td>
                         <td class="d-inline-flex">
-                            <a  href="{{route("car.show", $car->id)}}" class="btn btn-info p-2 me-1 btn-sm">View</a>
-                            <a href="{{route("car.edit", $car->id)}}" class="btn btn-primary p-2 me-1 btn-sm">Edit</a>
-                            <form style="display:inline;" method="post" action="{{route('car.destroy', $car->id)}}">
+                            <a  href="{{route("rental.show", $rental->id)}}" class="btn btn-info p-2 me-1 btn-sm">View</a>
+                            <a href="{{route("rental.edit", $rental->id)}}" class="btn btn-primary p-2 me-1 btn-sm">Edit</a>
+                            <form style="display:inline;" method="post" action="{{route('rental.destroy', $rental->id)}}">
                                 @csrf
                                 @method('delete')
                                 <button type="submit"  class="btn btn-danger p-2 btn-sm dlt-btn-t">Delete</button>
@@ -53,7 +55,6 @@
             </table>
         </div>
     </div>
-
     <script>
         // Wait until the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', function() {
