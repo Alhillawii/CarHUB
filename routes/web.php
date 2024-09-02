@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Facades\Auth;
 use Illuminate\Support\Facades\Auth;
@@ -157,3 +158,11 @@ Route::get('/dash', function () {
 Route::get('/hhome', function () {
     return view('index');
 });
+
+
+
+Route::get('log',[LoginController::class,'log'])->name("logg");
+
+///////////////////////// 
+
+

@@ -8,6 +8,14 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars"></span>
                     </button>
+
+<!-- //////////////////////////////////////////////////////////////////// -->
+
+
+             
+
+<!-- /////////////////////////////////////////// -->
+
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav mx-auto py-0">
                             <a href="index.html" class="nav-item nav-link active">Home</a>
@@ -27,7 +35,50 @@
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
-                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4">LogIn / SignUp</a>
+
+
+
+
+
+                        @if (Route::has('login'))
+                        @auth
+                        @if(Auth::user()->role === 1)
+                <a href="{{ url('/dashboard') }}"
+                   class="btn btn-primary rounded-pill py-2 px-4"
+                >
+                    Dashboard
+                </a>
+            @endif
+            @else
+                        
+                    
+                        <a href="{{ route('login') }}"  class="btn btn-primary rounded-pill py-2 px-4 m-4 px-4">LogIn</a>
+                        @if (Route::has('register'))
+                <a
+                    href="{{ route('register') }}"
+                    class="btn btn-primary rounded-pill py-2 px-4"
+                >
+                    Register
+                </a>
+            @endif
+        @endauth
+        @endif
+
+<!-- ////////////////////////////////// تجربه -->
+
+<!-- <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+     logout
+
+</a> -->
+<!-- 
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form> -->
+
+
+<!-- ///////////////////////////// /////////////////////// -->
+
+
                     </div>
                 </nav>
             </div>
