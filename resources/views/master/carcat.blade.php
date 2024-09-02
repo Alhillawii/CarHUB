@@ -30,67 +30,118 @@
         <!-- Header End -->
 
         <!-- Car categories Start -->
-        <div class="container-fluid blog py-5">
-    <div class="container py-5">
-        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <h1 class="display-5 text-capitalize mb-3">Cental<span class="text-primary"> Blog & News</span></h1>
-            
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                    </div>
-                    <div class="blog-content rounded-bottom p-4">
-                        <div class="blog-date">30 Dec 2025</div>
-                        <div class="blog-comment my-3">
-                            <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                            <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div id="carImageSlider" class="carousel slide mb-3" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://images.pexels.com/photos/2127039/pexels-photo-2127039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Car Image" class="d-block w-100">
                         </div>
-                        <a href="#" class="h4 d-block mb-3">Rental Cars how to check driving fines?</a>
-                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="#" class="">Read More <i class="fa fa-arrow-right"></i></a>
+                        <div class="carousel-item">
+                            <img src="https://images.pexels.com/photos/2127040/pexels-photo-2127040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Car Image" class="d-block w-100">
+                        </div>
                     </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carImageSlider" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carImageSlider" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="img/blog-2.jpg" class="img-fluid rounded-top w-100" alt="Image">
+
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Car Details</h3>
                     </div>
-                    <div class="blog-content rounded-bottom p-4">
-                        <div class="blog-date">25 Dec 2025</div>
-                        <div class="blog-comment my-3">
-                            <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                            <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
+                    <div class="card-body">
+                        <div id="rentalForm">
+                            <div class="mb-3">
+                                <label class="form-label">Car Model:</label>
+                                <p class="car-name-display">{{ $brand->name }} {{ $car->name }}</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Car Details:</label>
+                                <p class="car-desc-display">
+                                    <strong>Engine:</strong> {{ $engine->type }}<br>
+                                    <strong>Transmission:</strong> {{ $transmission->type }}<br>
+                                    <strong>Seats:</strong> {{ $car->seat }}<br>
+                                    <strong>Type:</strong> {{ $car->type }}
+                                </p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Model Year:</label>
+                                <p class="model-year-display">{{ $car->year }}</p>
+                            </div>
+                            <form id="rentalForm" action="{{ route('car.reserve') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="car_id" value="{{ $car->id }}">
+                                <div class="mb-3">
+                                    <label for="startDate" class="form-label">Start Date</label>
+                                    <input type="date" class="form-control" id="startDate" name="start_date" required>
+                                    <div id="startDateError" class="error-message"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="endDate" class="form-label">End Date</label>
+                                    <input type="date" class="form-control" id="endDate" name="end_date" required>
+                                    <div id="endDateError" class="error-message"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Total Price</label>
+                                    <p class="price-display" id="price">$0.00</p>
+                                </div>
+                                <div id="successMessage" class="alert alert-success">Reservation Successful!</div>
+                                <button type="submit" class="btn btn-primary w-100">Reserve Now</button>
+                            </form>
                         </div>
-                        <a href="#" class="h4 d-block mb-3">Rental cost of sport and other cars</a>
-                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="#" class="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="img/blog-3.jpg" class="img-fluid rounded-top w-100" alt="Image">
+
+                <div class="comments-section">
+                    <h3>Comments</h3>
+                    <div id="commentsList">
+                        @foreach($reviews as $review)
+    <div class="comment">
+        <p class="comment-author">{{ $review->user->name ?? 'Anonymous' }}</p>
+        <p class="rating-display">
+            @for ($i = 0; $i < $review->rating; $i++)
+                <span>&#9733;</span>
+            @endfor
+            @for ($i = $review->rating; $i < 5; $i++)
+                <span>&#9734;</span>
+            @endfor
+        </p>
+        <p class="comment-text">{{ $review->reviews }}</p>
+    </div>
+    @endforeach
                     </div>
-                    <div class="blog-content rounded-bottom p-4">
-                        <div class="blog-date">27 Dec 2025</div>
-                        <div class="blog-comment my-3">
-                            <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                            <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
+                    <form id="commentForm" action="{{ route('car.addComment', $car->id) }}" method="POST" class="comment-form">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="rating" class="form-label">Rating</label>
+                            <select id="rating" name="rating" class="form-select" required>
+                                <option value="5">★★★★★</option>
+                                <option value="4">★★★★☆</option>
+                                <option value="3">★★★☆☆</option>
+                                <option value="2">★★☆☆☆</option>
+                                <option value="1">★☆☆☆☆</option>
+                            </select>
                         </div>
-                        <a href="#" class="h4 d-block mb-3">Document required for car rental</a>
-                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="#" class="">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
+                        <div class="mb-3">
+                            <label for="commentText" class="form-label">Your Comment</label>
+                            <textarea class="form-control" id="commentText" name="review" rows="2" placeholder="Share your experience..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Add Comment</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
     </div>
-</div>
         <!-- Car categories End -->
 
         

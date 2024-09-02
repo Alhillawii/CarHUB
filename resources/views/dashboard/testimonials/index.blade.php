@@ -22,7 +22,8 @@
                             <i class="ri-chat-quote-line ri-22px text-info me-4"></i>
                             <span>{{ $testimonial->review }}</span>
                         </td>
-                        <td>{{ $testimonial->user->name }}</td>
+                        <  <td>{{ $testimonial->user->name }}</td>
+                        <td>{{ $testimonial->user->status }}</td>
                         <td>
                             @if ($testimonial->trashed())
                                 <span class="badge rounded-pill bg-label-danger me-1">Deleted</span>

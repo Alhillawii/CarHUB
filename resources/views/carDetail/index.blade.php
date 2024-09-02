@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/cardeatil.css">
 </head>
 <body>
+    |@include('master.home.nav')
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-4">
@@ -164,6 +165,8 @@
             }, 5000);
         });
     </script>
+
+    @include('master.home.foot')
 </body>
 </html>
 

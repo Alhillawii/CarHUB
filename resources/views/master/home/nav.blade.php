@@ -22,6 +22,7 @@
                             <a href="{{url('about')}}" class="nav-item nav-link">About</a>
                             <a href="{{url('service')}}" class="nav-item nav-link">Service</a>
                             <a href="{{url('carcat')}}" class="nav-item nav-link">Our Cars</a>
+                            <!-- <a href="{{url('carDetail.index')}}" class="nav-item nav-link">Cars Detalis</a> -->
                             
                                    
                             <a href="{{url('contact')}}" class="nav-item nav-link">Contact</a>
