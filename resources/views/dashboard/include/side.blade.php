@@ -66,9 +66,7 @@
             <span class="app-brand-text demo menu-text fw-semibold ms-2">Materio</span>
         </a>
 
-        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-            <i class="menu-toggle-icon d-xl-block align-middle"></i>
-        </a>
+
     </div>
 
     <div class="menu-inner-shadow"></div>
@@ -77,53 +75,58 @@
         <!-- Dashboards -->
 
         <li class="menu-item">
-            <a href="cards-basic.html" class="menu-link">
+            <a href="{{route('dashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Dashboard</div>
             </a>
         </li>
 
         <li class="menu-item">
-            <a href="cards-basic.html" class="menu-link">
-                <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
+            <a href="{{route('car.index')}}" class="menu-link">
+                <i data-v-38237799="" class="ri-car-fill"  style="padding-right: 8px;"  ></i>
                 <div data-i18n="Basic">Cars</div>
             </a>
         </li>
 
         <li class="menu-item">
-            <a href="cards-basic.html" class="menu-link">
-                <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
+            <a href="{{route('rental.index')}}" class="menu-link">
+                <i class="ri-money-dollar-box-fill" style="padding-right: 8px;" ></i>
                 <div data-i18n="Basic">Rentals</div>
             </a>
         </li>
 
         <li class="menu-item">
-            <a href="cards-basic.html" class="menu-link">
-                <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
+            <a href="{{route('user.index')}}" class="menu-link">
+                <i class="ri-user-line" style="padding-right: 8px;" ></i>
                 <div data-i18n="Basic">Users</div>
             </a>
         </li>
 
         <li class="menu-item">
-            <a href="testimonials" class="menu-link">
-                <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
+            <a href="{{route('testimonials.index')}}" class="menu-link">
+                <i class="ri-group-line" style="padding-right: 8px;" ></i>
                 <div data-i18n="Basic">Testimonials</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="{{route("reviews.index")}}" class="menu-link">
-                <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
-                <div data-i18n="Basic">Review</div>
+                <i class="ri-eye-fill"style="padding-right: 8px;"></i>
+                <div data-i18n="Basic">Car Review</div>
             </a>
-        </li> 
+        </li>
         <li class="menu-item">
             <a href="{{route("brands.index")}}" class="menu-link">
-                <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
+                <i class="ri-taxi-fill" style="padding-right: 8px;"></i>
                 <div data-i18n="Basic">Brand</div>
             </a>
-        </li>        <!-- Layouts -->
+        </li>
 
-
+        <li class="menu-item">
+            <a href="{{route("contact.index")}}" class="menu-link">
+                <i class="ri-contacts-book-fill" style="padding-right: 8px;"></i>
+                <div data-i18n="Basic">Contact</div>
+            </a>
+        </li>
 
 
     </ul>

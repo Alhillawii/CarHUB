@@ -77,12 +77,15 @@ class CarImageController extends Controller
 
     public function destroy($id)
     {
+
+        $car_id= request()->car_id;
+
         $carImg = Car_image::findOrFail($id);
         if(File::exists($carImg->path)){
             File::delete($carImg->path);
         }
         $carImg->delete();
-        return redirect()->back()->with('status', 'Image Deleted');
+        return to_route('car.upload.images',$car_id)->with('status', 'Image Deleted');
     }
 
 }

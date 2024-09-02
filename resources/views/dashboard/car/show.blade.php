@@ -1,8 +1,12 @@
 @extends('dashboard.layout.master')
-@section('title','user')
+@section('title','car')
 
 @section('content')
-
+    <div class="text-left">
+        <button class="btn ">
+            <a href="{{ route('car.index') }}" class="btn btn-primary p-2 float-start">Back to List</a>
+        </button>
+    </div>
     <div class="card mt-4">
         <div class="card-header">
            Car Info
@@ -20,11 +24,6 @@
 
         </div>
     </div>
-
-
-
-
-
 
 
 
