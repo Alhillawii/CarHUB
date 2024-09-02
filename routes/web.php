@@ -31,9 +31,14 @@ Route::post('/reserve', [CarReservationController::class, 'reserve'])->name('car
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/d', function () {
-    return view('dashboard.car.index');
-});
+// Route::get('/d', function () {
+//     return view('dashboard.car.index');
+// });
+
+
+
+
+
 
 
 // ^----------------------------------user route start-----------------------------------------
@@ -112,3 +117,23 @@ Route::get('reviews/{id}/edit', [ReviewController::class, 'edit'])->name('review
 Route::put('reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
 
 Route::delete('reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+
+///////////////////////////////////  middleware  //////////////
+
+
+
+////////////////////////////// home 
+
+
+Route::get('/dash', function () {
+    return view('dashboard');
+})->middleware(['auth','admin']);
+
+
+
+/////////////////////////// dashboard
+
+Route::get('/hhome', function () {
+    return view('hhome');
+});
