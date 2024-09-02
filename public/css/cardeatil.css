@@ -1,8 +1,8 @@
 :root {
-    --primary-color: #ff4136;
+    --primary-color: #e8efed;
     --secondary-color: #003366;
-    --background-overlay: rgba(0, 0, 0, 0.6);
-    --card-bg: rgba(255, 255, 255, 0.1);
+    --background-overlay: rgba(0, 0, 0, 0.3);
+    --card-bg: rgba(37, 37, 37, 0.6);
     --text-color: #f8f9fa;
     --font-family: 'Roboto', sans-serif;
     --heading-font: 'Montserrat', sans-serif;
@@ -15,7 +15,7 @@
 }
 
 body {
-    background: url(https://www.hdcarwallpapers.com/walls/lamborghini_aventador_ultimae_roadster_4k-HD.jpg) no-repeat center center fixed;
+    background: url(https://picstatio.com/large/93cc7d/BMW-m4-on-road.jpg) no-repeat center center fixed;
     background-size: cover;
     color: var(--text-color);
     font-family: var(--font-family);

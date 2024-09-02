@@ -12,6 +12,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarImageController;
+use App\Http\Controllers\userrentals;
 use App\Models\Review;
 
 
@@ -26,6 +27,12 @@ Route::get('/', function () {
 Route::get('/car/{id}', [CarDetailsRenderController::class, 'show'])->name('car.details');
 Route::post('/car/{id}/comment', [CarDetailsRenderController::class, 'addComment'])->name('car.addComment');
 Route::post('/reserve', [CarReservationController::class, 'reserve'])->name('car.reserve');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/userrentals', [userrentals::class, 'index']);
+    Route::post('/rentals/{id}/cancel', [userrentals::class, 'cancel'])->name('rentals.cancel');
+});
+Route::get('/userrentals', [userrentals::class, 'index'])->name('userrentals.index');
 
 
 
@@ -73,15 +80,9 @@ Route::delete('dashboard/cars/{car}', [CarController::class , "destroy"])->name(
 //^ ----------------------------------car route end ----------------------------------------
 
 
-
-
 Route::resource('testimonials', TesteimonialController::class);
 
-
-
 /////////////////////////////////// brand //////////////
-
-
 
 
 Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
