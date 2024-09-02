@@ -16,7 +16,7 @@ use App\Http\Controllers\CarReservationController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\TesteimonialController;
 use App\Http\Controllers\ReviewController;
-
+use App\Http\Controllers\MasterRenderController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +29,12 @@ Route::get('/', function () {
 Route::get('/car/{id}', [CarDetailsRenderController::class, 'show'])->name('car.details');
 Route::post('/car/{id}/comment', [CarDetailsRenderController::class, 'addComment'])->name('car.addComment');
 Route::post('/reserve', [CarReservationController::class, 'reserve'])->name('car.reserve');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/userrentals', [userrentals::class, 'index']);
+    Route::post('/rentals/{id}/cancel', [userrentals::class, 'cancel'])->name('rentals.cancel');
+});
+Route::get('/userrentals', [userrentals::class, 'index'])->name('userrentals.index');
 
 
 
@@ -157,3 +163,5 @@ Route::get('/dash', function () {
 Route::get('/hhome', function () {
     return view('hhome');
 });
+Route::get('/index', [MasterRenderController::class, 'index']);
+// Route::get('/car/{id}', [CarDetailsRenderController::class, 'index'])->name('carDetail.index');

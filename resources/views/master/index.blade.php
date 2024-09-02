@@ -9,7 +9,7 @@
 <!-- Spinner End -->
 
 <!-- Topbar Start -->
-<div class="container-fluid topbar bg-secondary d-none d-xl-block w-100">
+{{-- <div class="container-fluid topbar bg-secondary d-none d-xl-block w-100">
     <div class="container">
         <div class="row gx-0 align-items-center" style="height: 45px;">
             <div class="col-lg-6 text-center text-lg-start mb-lg-0">
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Topbar End -->
 
 <!-- Navbar & Hero Start -->
@@ -65,29 +65,13 @@
                                                     <option value="4">BMW 320 ModernLine</option>
                                                 </select>
                                             </div>
+                                            
+                                            
                                             <div class="col-12">
                                                 <div class="input-group">
                                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                        <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pick Up</span>
+                                                       
                                                     </div>
-                                                    <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <a href="#" class="text-start text-white d-block mb-2">Need a different drop-off location?</a>
-                                                <div class="input-group">
-                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                        <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
-                                                    </div>
-                                                    <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="input-group">
-                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
-                                                    </div>
-                                                    <input class="form-control" type="date">
                                                     <select class="form-select ms-3" aria-label="Default select example">
                                                         <option selected>12:00AM</option>
                                                         <option value="1">1:00AM</option>
@@ -103,9 +87,8 @@
                                             <div class="col-12">
                                                 <div class="input-group">
                                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
+                                                        
                                                     </div>
-                                                    <input class="form-control" type="date">
                                                     <select class="form-select ms-3" aria-label="Default select example">
                                                         <option selected>12:00AM</option>
                                                         <option value="1">1:00AM</option>
@@ -346,64 +329,35 @@
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
             <h1 class="display-5 text-capitalize mb-3">Cental<span class="text-primary"> Blog & News</span></h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
-            </p>
         </div>
         <div class="row g-4">
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                    </div>
-                    <div class="blog-content rounded-bottom p-4">
-                        <div class="blog-date">30 Dec 2025</div>
-                        <div class="blog-comment my-3">
-                            <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                            <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
+            @foreach($cars as $car)
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            
+                            <img src="{{ asset($car->images->first()->path) }}" class="img-fluid rounded-top w-100" alt="{{ $car->name }}">
+                           
                         </div>
-                        <a href="#" class="h4 d-block mb-3">Rental Cars how to check driving fines?</a>
-                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="#" class="">Read More <i class="fa fa-arrow-right"></i></a>
+                        <div class="blog-content rounded-bottom p-4">
+                            <div class="blog-date">{{ $car->year }}</div>
+                            <div class="blog-comment my-3">
+                                <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">{{ $car->status }}</span></div>
+                                <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">{{ $car->type }}</span></div>
+                            </div>
+                            <a href="{{ route('car.details', $car->id) }}" class="h4 d-block mb-3">{{ $car->name }}</a>
+                            <p class="mb-3">Price: {{ $car->pice }}, Seats: {{ $car->seat }}, Color: {{ $car->color }}</p>
+                            <a href="{{ route('car.details', $car->id) }}" class="">Read More <i class="fa fa-arrow-right"></i></a>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="img/blog-2.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                    </div>
-                    <div class="blog-content rounded-bottom p-4">
-                        <div class="blog-date">25 Dec 2025</div>
-                        <div class="blog-comment my-3">
-                            <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                            <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
-                        </div>
-                        <a href="#" class="h4 d-block mb-3">Rental cost of sport and other cars</a>
-                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="#" class="">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="img/blog-3.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                    </div>
-                    <div class="blog-content rounded-bottom p-4">
-                        <div class="blog-date">27 Dec 2025</div>
-                        <div class="blog-comment my-3">
-                            <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                            <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
-                        </div>
-                        <a href="#" class="h4 d-block mb-3">Document required for car rental</a>
-                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="#" class="">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
+
+
 <!-- Blog End -->
 
 
@@ -412,76 +366,34 @@
 <div class="container-fluid testimonial pb-5">
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <h1 class="display-5 text-capitalize mb-3">Our Clients<span class="text-primary"> Riviews</span></h1>
-           
+            <h1 class="display-5 text-capitalize mb-3">Our Clients<span class="text-primary"> Reviews</span></h1>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+            @foreach($reviews as $review)
             <div class="testimonial-item">
-                <div class="testimonial-quote"><i class="fa fa-quote-right fa-2x"></i>
-                </div>
+                <div class="testimonial-quote"><i class="fa fa-quote-right fa-2x"></i></div>
                 <div class="testimonial-inner p-4">
-                    <img src="img/testimonial-1.jpg" class="img-fluid" alt="">
+                    <!-- Placeholder for reviewer's image -->
+                    <img src="{{ $review->user->image }}" class="img-fluid" alt="{{ $review->user->name }}">
                     <div class="ms-4">
-                        <h4>Person Name</h4>
-                        <p>Profession</p>
+                        <h4>{{ $review->user->name }}</h4>
+                        <p>{{ $review->car->model }}</p>
                         <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star text-body"></i>
+                            @for($i = 1; $i <= 5; $i++)
+                                <i class="fas fa-star {{ $i <= $review->rating ? '' : 'text-body' }}"></i>
+                            @endfor
                         </div>
                     </div>
                 </div>
                 <div class="border-top rounded-bottom p-4">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+                    <p class="mb-0">{{ $review->reviews }}</p>
                 </div>
             </div>
-            <div class="testimonial-item">
-                <div class="testimonial-quote"><i class="fa fa-quote-right fa-2x"></i>
-                </div>
-                <div class="testimonial-inner p-4">
-                    <img src="img/testimonial-2.jpg" class="img-fluid" alt="">
-                    <div class="ms-4">
-                        <h4>Person Name</h4>
-                        <p>Profession</p>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star text-body"></i>
-                            <i class="fas fa-star text-body"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="border-top rounded-bottom p-4">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-quote"><i class="fa fa-quote-right fa-2x"></i>
-                </div>
-                <div class="testimonial-inner p-4">
-                    <img src="img/testimonial-3.jpg" class="img-fluid" alt="">
-                    <div class="ms-4">
-                        <h4>Person Name</h4>
-                        <p>Profession</p>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star text-body"></i>
-                            <i class="fas fa-star text-body"></i>
-                            <i class="fas fa-star text-body"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="border-top rounded-bottom p-4">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
+
 <!-- Testimonial End -->
 
 <!-- Footer Start -->
