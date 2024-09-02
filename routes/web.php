@@ -16,6 +16,7 @@ use App\Http\Controllers\CarReservationController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\TesteimonialController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\MessegeDatabaseController;
 
 
 Route::get('/', function () {
@@ -49,7 +50,7 @@ Route::get('/about', function () {
 });
 Route::get('/contact', function () {
     return view('master.contact');
-});
+})->name('home.contact');
 Route::get('/service', function () {
     return view('master.service');
 });
@@ -144,10 +145,11 @@ Route::delete('dashboard/rentals/{rental}', [RentalsController::class , "destroy
 Route::get('dashboard/contact', [ContactController::class , "index"])->name("contact.index");
 Route::get('dashboard/contact/{contact}', [ContactController::class , "show"])->name("contact.show");
 Route::delete('dashboard/contact/{contact}', [ContactController::class , "destroy"])->name("contact.destroy");
+Route::post('dashboard/contact', [ContactController::class , "store"])->name("contact.store");
 // add the create and store (tamimi)
 //^ ----------------------------------contact route end-----------------------------------------
 Route::get('/dash', function () {
-    return view('dashboard');
+    return view('dashboard.dash.main');
 })->middleware(['auth','admin']);
 
 
@@ -155,5 +157,8 @@ Route::get('/dash', function () {
 /////////////////////////// dashboard
 
 Route::get('/hhome', function () {
-    return view('hhome');
+    return view('master.index');
 });
+
+
+

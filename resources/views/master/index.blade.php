@@ -8,29 +8,7 @@
 </div>
 <!-- Spinner End -->
 
-<!-- Topbar Start -->
-<div class="container-fluid topbar bg-secondary d-none d-xl-block w-100">
-    <div class="container">
-        <div class="row gx-0 align-items-center" style="height: 45px;">
-            <div class="col-lg-6 text-center text-lg-start mb-lg-0">
-                <div class="d-flex flex-wrap">
-                    <a href="#" class="text-muted me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
-                    <a href="tel:+01234567890" class="text-muted me-4"><i class="fas fa-phone-alt text-primary me-2"></i>+01234567890</a>
-                    <a href="mailto:example@gmail.com" class="text-muted me-0"><i class="fas fa-envelope text-primary me-2"></i>Example@gmail.com</a>
-                </div>
-            </div>
-            <div class="col-lg-6 text-center text-lg-end">
-                <div class="d-flex align-items-center justify-content-end">
-                    <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="btn btn-light btn-sm-square rounded-circle me-0"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Topbar End -->
+
 
 <!-- Navbar & Hero Start -->
 <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
@@ -151,8 +129,6 @@
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
             <h1 class="display-5 text-capitalize mb-3">Car Hub  <span class="text-primary">Features</span></h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
-            </p>
         </div>
         <div class="row g-4 align-items-center">
             <div class="col-xl-4">
@@ -163,8 +139,8 @@
                                 <span class="fa fa-trophy fa-2x"></span>
                             </div>
                             <div class="ms-4">
-                                <h5 class="mb-3">First Class services</h5>
-                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                <h5 class="mb-3">Flexible and easy-to-use</h5>
+                                <p class="mb-0">The site includes a booking system that allows users to search for available cars with options to select the car type.</p>
                             </div>
                         </div>
                     </div>
@@ -174,8 +150,8 @@
                                 <span class="fa fa-road fa-2x"></span>
                             </div>
                             <div class="ms-4">
-                                <h5 class="mb-3">24/7 road assistance</h5>
-                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                <h5 class="mb-3">Comprehensive vehicle details</h5>
+                                <p class="mb-0"> The site provides detailed information about each vehicle available for rent. You can also include ratings and reviews from previous customers.</p>
                             </div>
                         </div>
                     </div>
@@ -189,8 +165,8 @@
                     <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="feature-item justify-content-end">
                             <div class="text-end me-4">
-                                <h5 class="mb-3">Quality at Minimum</h5>
-                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                <h5 class="mb-3">Customer Support</h5>
+                                <p class="mb-0"> Effective customer support accessible via live chat, email or phone, to assist with queries and resolve issues quickly and efficiently.</p>
                             </div>
                             <div class="feature-icon">
                                 <span class="fa fa-tag fa-2x"></span>
@@ -200,8 +176,8 @@
                     <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="feature-item justify-content-end">
                             <div class="text-end me-4">
-                                <h5 class="mb-3">Free Pick-Up & Drop-Off</h5>
-                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                <h5 class="mb-3">Booking System</h5>
+                                <p class="mb-0">The site provides an advanced system that allows users to easily manage their bookings. Customers can modify rental dates, cancel bookings.</p>
                             </div>
                             <div class="feature-icon">
                                 <span class="fa fa-map-pin fa-2x"></span>
