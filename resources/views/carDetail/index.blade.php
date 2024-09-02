@@ -85,28 +85,30 @@
                     <h3>Comments</h3>
                     <div id="commentsList">
                         @foreach($reviews as $review)
-                            <div class="comment">
-                                <p class="comment-author">Anonymous</p>
-                                <p class="rating-display">
-                                    @for ($i = 0; $i < $review->rating; $i++)
-                                        <span>&#9733;</span>
-                                    @endfor
-                                    @for ($i = $review->rating; $i < 5; $i++)
-                                        <span>&#9734;</span>
-                                    @endfor
-                                </p>
-                                <p class="comment-text">{{ $review->reviews }}</p>
-                            </div>
-                        @endforeach
+    <div class="comment">
+        <p class="comment-author">{{ $review->user->name ?? 'Anonymous' }}</p>
+        <p class="rating-display">
+            @for ($i = 0; $i < $review->rating; $i++)
+                <span>&#9733;</span>
+            @endfor
+            @for ($i = $review->rating; $i < 5; $i++)
+                <span>&#9734;</span>
+            @endfor
+        </p>
+        <p class="comment-text">{{ $review->reviews }}</p>
+    </div>
+    @endforeach
                     </div>
                     <form id="commentForm" action="{{ route('car.addComment', $car->id) }}" method="POST" class="comment-form">
                         @csrf
                         <div class="mb-3">
-                            <label for="rating" class="form-label">Rating (1-5)</label>
+                            <label for="rating" class="form-label">Rating</label>
                             <select id="rating" name="rating" class="form-select" required>
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <option value="{{ $i }}">{{ $i }}</option>
-                                @endfor
+                                <option value="5">★★★★★</option>
+                                <option value="4">★★★★☆</option>
+                                <option value="3">★★★☆☆</option>
+                                <option value="2">★★☆☆☆</option>
+                                <option value="1">★☆☆☆☆</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -115,6 +117,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Add Comment</button>
                     </form>
+                    
                 </div>
             </div>
         </div>
@@ -163,3 +166,9 @@
     </script>
 </body>
 </html>
+
+{{-- @foreach ($images as $index => $image)
+<div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+    <img src="{{ $image->path }}" alt="Car Image" class="d-block w-100">
+</div>
+@endforeach --}}
