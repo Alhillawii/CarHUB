@@ -47,7 +47,7 @@ class BrandController extends Controller
             'logo' => $logoName,
         ]);
 
-        return redirect()->route('dashboard.brand.index')->with('success', 'Brand created successfully.');
+        return redirect()->route('brands.index')->with('success', 'Brand created successfully.');
     }
 
 
@@ -96,19 +96,19 @@ class BrandController extends Controller
             'logo' => $logoName,
         ]);
 
-        return redirect()->route('dashboard.brand.index')->with('success', 'Brand updated successfully.');    }
+        return redirect()->route('brands.index')->with('success', 'Brand updated successfully.');    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy($id)
     {
-        
+
         $brand = Brand::findOrFail($id);
         if ($brand->logo) {
             unlink(public_path('uploads/brands/' . $brand->logo));
         }
         $brand->delete();
-        return redirect()->route('dashboard.brand.index')->with('success', 'Brand deleted successfully.');
+        return redirect()->route('brands.index')->with('success', 'Brand deleted successfully.');
     }
 }

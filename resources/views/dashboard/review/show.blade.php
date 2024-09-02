@@ -1,6 +1,11 @@
 @extends('dashboard.layout.master')
 
 @section('content')
+    <div class="text-left">
+        <button class="btn ">
+            <a href="{{ route('reviews.index') }}" class="btn btn-primary p-2 float-start">Back to List</a>
+        </button>
+    </div>
     <div class="card">
         <h5 class="card-header">Review Details</h5>
         <div class="card-body">

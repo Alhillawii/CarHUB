@@ -1,18 +1,21 @@
 <?php
 
-use App\Http\Controllers\CarDetailsRenderController;
-use App\Http\Controllers\CarReservationController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TesteimonialController;
 // use App\Http\Controllers\Facades\Auth;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\ReviewController;
+use App\Models\Review;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarImageController;
-use App\Models\Review;
+use \App\Http\Controllers\DashboardController ;
+use \App\Http\Controllers\RentalsController;
+use \App\Http\Controllers\ContactController;
+use App\Http\Controllers\CarDetailsRenderController;
+use App\Http\Controllers\CarReservationController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\TesteimonialController;
+use App\Http\Controllers\ReviewController;
 
 
 Route::get('/', function () {
@@ -31,6 +34,8 @@ Route::post('/reserve', [CarReservationController::class, 'reserve'])->name('car
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+
 Route::get('/index', function () {
     return view('master.index');
 });
@@ -67,10 +72,9 @@ Route::delete('dashboard/users/{user}', [UserController::class , "destroy"])->na
 //^ ----------------------------------user route end-----------------------------------------
 
 // ^----------------------------------car route start-----------------------------------------
-
 Route::get('dashboard/cars/{car}/upload', [CarImageController::class, "index"])->name("car.upload.images");
 Route::post('dashboard/cars/{car}/upload', [CarImageController::class, 'store'])->name('car.store.images');
-Route::get('dashboard/cars-image/{car}/delete', [CarImageController::class, 'destroy'])->name('car.destroy.images');
+Route::delete('dashboard/cars/{car}/upload/delete', [CarImageController::class, 'destroy'])->name('car.destroy.images');
 
 Route::get('dashboard/cars', [CarController::class , "index"])->name("car.index");
 
@@ -83,48 +87,62 @@ Route::get('dashboard/cars/{car}/edit' ,[CarController::class , 'edit'])->name('
 Route::get('dashboard/cars/{car}', [CarController::class , "show"])->name("car.show");
 
 Route::delete('dashboard/cars/{car}', [CarController::class , "destroy"])->name("car.destroy");
-
-
-
 //^ ----------------------------------car route end ----------------------------------------
 
 
 
-
+//^ ----------------------------------testimonials route start ----------------------------------------
 Route::resource('testimonials', TesteimonialController::class);
+//^ ----------------------------------testimonials route end ----------------------------------------
 
 
+//^ ----------------------------------brand route start ----------------------------------------
+Route::get('dashboard/brands', [BrandController::class, 'index'])->name('brands.index');
 
-/////////////////////////////////// brand //////////////
+Route::get('dashboard/brands/create', [BrandController::class, 'create'])->name('brands.create');
+Route::post('dashboard/brands', [BrandController::class, 'store'])->name('brands.store');
+
+Route::get('dashboard/brands/{id}/edit', [BrandController::class, 'edit'])->name('brands.edit');
+Route::put('dashboard/brands/{id}', [BrandController::class, 'update'])->name('brands.update');
+
+Route::get('dashboard/brands/{id}', [BrandController::class, 'show'])->name('brands.show');
+
+Route::delete('dashboard/brands/{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
+//^ ----------------------------------brand route end ----------------------------------------
 
 
+//^ ----------------------------------car_review route start ----------------------------------------
+Route::get('dashboard/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+
+Route::get('dashboard/reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
+
+Route::post('dashboard/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
+Route::get('dashboard/reviews/{id}', [ReviewController::class, 'show'])->name('reviews.show');
+
+Route::get('dashboard/reviews/{id}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+
+Route::put('dashboard/reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
+
+Route::delete('dashboard/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+//^ ----------------------------------car_review route end ----------------------------------------
 
 
-Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
+// ^----------------------------------rental route start-----------------------------------------
+Route::get('dashboard/rentals', [RentalsController::class , "index"])->name("rental.index");
 
-Route::get('/brands/create', [BrandController::class, 'create'])->name('brands.create');
-Route::post('/brands', [BrandController::class, 'store'])->name('brands.store');
+Route::PUT('dashboard/rentals/{rental}', [RentalsController::class , "update"])->name("rental.update");
+Route::get('dashboard/rentals/{rental}/edit' ,[RentalsController::class , 'edit'])->name('rental.edit');
 
-Route::get('/brands/{id}/edit', [BrandController::class, 'edit'])->name('brands.edit');
-Route::put('/brands/{id}', [BrandController::class, 'update'])->name('brands.update');
+Route::get('dashboard/rentals/{rental}', [RentalsController::class , "show"])->name("rental.show");
+
+Route::delete('dashboard/rentals/{rental}', [RentalsController::class , "destroy"])->name("rental.destroy");
+//^ ----------------------------------rental route end-----------------------------------------
 
 
-Route::get('/brands/{id}', [BrandController::class, 'show'])->name('brands.show');
-
-Route::delete('/brands/{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
-
-////////////////////////////////////
-
-Route::get('reviews', [ReviewController::class, 'index'])->name('reviews.index');
-
-Route::get('reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
-
-Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
-
-Route::get('reviews/{id}', [ReviewController::class, 'show'])->name('reviews.show');
-
-Route::get('reviews/{id}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
-
-Route::put('reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
-
-Route::delete('reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+// ^----------------------------------contact route start-----------------------------------------
+Route::get('dashboard/contact', [ContactController::class , "index"])->name("contact.index");
+Route::get('dashboard/contact/{contact}', [ContactController::class , "show"])->name("contact.show");
+Route::delete('dashboard/contact/{contact}', [ContactController::class , "destroy"])->name("contact.destroy");
+// add the create and store (tamimi)
+//^ ----------------------------------contact route end-----------------------------------------

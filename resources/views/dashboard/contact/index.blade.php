@@ -1,53 +1,42 @@
 @extends('dashboard.layout.master')
-@section('title','user')
+@section('title','contact')
 
 @section('content')
-    <div class="text-left">
-    <a href="{{route('user.create')}}" class="btn btn-success waves-effect waves-light">+Add User</a>
-    </div>
+
     <div class="card">
-        <h5 class="card-header">User Table</h5>
+        <h5 class="card-header">Contact Table</h5>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Image</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Permissions</th>
+                    <th>Subject</th>
+                    <th>Message</th>
                     <th>Created At</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                @foreach($users as $user)
-                <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td> @if($user->image)
-                            <img src="{{asset($user->image)}}" alt="user image" width="50px" height="50px">
-                        @else {{'NULL'}}
-                    @endif
+                @foreach($contacts as $contact)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$contact->name}}</td>
+                        <td>{{$contact->email}}</td>
+                        <td>{{$contact->subject}}</td>
+                        <td>{{$contact->message}}</td>
 
-                    </td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>
-                        @if($user->role == '0') {{'Uers'}} @endif
-                        @if($user->role == '1') {{'Admin'}} @endif
-                        @if($user->role == '-1') {{'Super Admin'}} @endif
-                    </td>
-                    <td>{{$user->created_at->format('y-m-d')}}</td>
-                    <td >
-                                <a class="btn btn-info p-2 btn-sm" href="{{route("user.show", $user->id)}}">View </a>
-                                <a class="btn btn-primary p-2 btn-sm " href="{{route("user.edit", $user->id)}}">Edit</a>
-                        <form style="display:inline;" method="post" action="{{route('user.destroy', $user->id)}}">
-                            @csrf
-                            @method('delete')
-                            <button type="submit"  class="btn btn-danger p-2 btn-sm dlt-btn-t">Delete</button>
-                        </form>
-                    </td>
-                </tr>
+                        <td>{{$contact->created_at->format('y-m-d')}}</td>
+                        <td >
+                            <a class="btn btn-info p-2 btn-sm" href="{{route("contact.show", $contact->id)}}">View </a>
+                            <form style="display:inline;" method="post" action="{{route('contact.destroy', $contact->id)}}">
+                                @csrf
+                                @method('delete')
+                                <button type="submit"  class="btn btn-danger p-2 btn-sm dlt-btn-t">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
 
                 </tbody>
