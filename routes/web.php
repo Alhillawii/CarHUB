@@ -146,3 +146,14 @@ Route::get('dashboard/contact/{contact}', [ContactController::class , "show"])->
 Route::delete('dashboard/contact/{contact}', [ContactController::class , "destroy"])->name("contact.destroy");
 // add the create and store (tamimi)
 //^ ----------------------------------contact route end-----------------------------------------
+Route::get('/dash', function () {
+    return view('dashboard');
+})->middleware(['auth','admin']);
+
+
+
+/////////////////////////// dashboard
+
+Route::get('/hhome', function () {
+    return view('hhome');
+});
