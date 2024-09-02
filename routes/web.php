@@ -31,10 +31,26 @@ Route::post('/reserve', [CarReservationController::class, 'reserve'])->name('car
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/d', function () {
-    return view('dashboard.car.index');
+Route::get('/index', function () {
+    return view('master.index');
 });
 
+Route::get('/carcat', function () {
+    return view('master.carcat');
+});
+
+Route::get('/about', function () {
+    return view('master.about');
+});
+Route::get('/contact', function () {
+    return view('master.contact');
+});
+Route::get('/service', function () {
+    return view('master.service');
+});
+Route::get('/test', function () {
+    return view('master.testimonials');
+});
 
 // ^----------------------------------user route start-----------------------------------------
 Route::get('dashboard/users', [UserController::class , "index"])->name("user.index");
