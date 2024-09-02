@@ -157,7 +157,7 @@
             }
         }
         document.getElementById('rentalForm').addEventListener('submit', function(event) {
-             
+            // event.preventDefault();
             document.getElementById('successMessage').style.display = 'block';
             setTimeout(() => {
                 document.getElementById('successMessage').style.display = 'none';
