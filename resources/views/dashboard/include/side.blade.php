@@ -66,7 +66,7 @@
             <span class="app-brand-text demo menu-text fw-semibold ms-2">Materio</span>
         </a>
 
-        
+
     </div>
 
     <div class="menu-inner-shadow"></div>
