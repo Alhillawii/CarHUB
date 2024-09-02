@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Facades\Auth;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Review;
+
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarController;
@@ -17,8 +17,11 @@ use App\Http\Controllers\CarReservationController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\TesteimonialController;
 use App\Http\Controllers\ReviewController;
+
+
 use App\Http\Controllers\MasterRenderController;
 use App\Http\Controllers\userrentals;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +34,7 @@ Route::get('/', function () {
 Route::get('/car/{id}', [CarDetailsRenderController::class, 'show'])->name('car.details');
 Route::post('/car/{id}/comment', [CarDetailsRenderController::class, 'addComment'])->name('car.addComment');
 Route::post('/reserve', [CarReservationController::class, 'reserve'])->name('car.reserve');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/userrentals', [userrentals::class, 'index']);
@@ -62,7 +66,7 @@ Route::get('/about', function () {
 });
 Route::get('/contact', function () {
     return view('master.contact');
-});
+})->name('home.contact');
 Route::get('/service', function () {
     return view('master.service');
 });
@@ -157,6 +161,7 @@ Route::delete('dashboard/rentals/{rental}', [RentalsController::class , "destroy
 Route::get('dashboard/contact', [ContactController::class , "index"])->name("contact.index");
 Route::get('dashboard/contact/{contact}', [ContactController::class , "show"])->name("contact.show");
 Route::delete('dashboard/contact/{contact}', [ContactController::class , "destroy"])->name("contact.destroy");
+Route::post('dashboard/contact', [ContactController::class , "store"])->name("contact.store");
 // add the create and store (tamimi)
 //^ ----------------------------------contact route end-----------------------------------------
 Route::get('/dash', function () {
@@ -168,10 +173,8 @@ Route::get('/dash', function () {
 /////////////////////////// dashboard
 
 Route::get('/hhome', function () {
-    return view('index');
+    return view('hhome');
 });
-
-
 
 Route::get('log',[LoginController::class,'log'])->name("logg");
 
@@ -181,6 +184,3 @@ Route::get('log',[LoginController::class,'log'])->name("logg");
 
 Route::get('/index', [MasterRenderController::class, 'index']);
 // Route::get('/car/{id}', [CarDetailsRenderController::class, 'index'])->name('carDetail.index');
-
-
-
