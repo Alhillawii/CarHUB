@@ -22,7 +22,7 @@ class checkAdmin
             return $next($request);
         }
 
-            return redirect('/hhome');
+            return redirect('/index');
     }
 
 }
