@@ -1,6 +1,11 @@
 @extends('dashboard.layout.master')
 
 @section('content')
+    <div class="text-left">
+        <button class="btn ">
+            <a href="{{ route('brands.index') }}" class="btn btn-primary p-2 float-start">Back to List</a>
+        </button>
+    </div>
     <div class="card">
         <h5 class="card-header">Brand Details</h5>
         <div class="card-body">
@@ -16,7 +21,7 @@
                 <label for="brandLogo" class="form-label">Brand Logo:</label><br>
                 <img src="{{ asset('uploads/brands/' . $brand->logo) }}" alt="Brand Logo" width="150">
             </div>
-            <a href="{{ route('brands.index') }}" class="btn btn-secondary">Back to List</a>
+
         </div>
     </div>
 @endsection
