@@ -40,7 +40,12 @@ Route::get('/userrentals', [userrentals::class, 'index'])->name('userrentals.ind
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//^ ----------------------------------dashboard route end-----------------------------------------
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard/admin',[DashboardController::class, 'indexTwo'])->name('dashboard.admin.index');
+Route::put('/dashboard/admin/{admin}',[DashboardController::class, 'update'])->name('dashboard.admin.update');
+//^ ----------------------------------dashboard route end-----------------------------------------
+
 
 Route::get('/index', function () {
     return view('master.index');
@@ -165,3 +170,6 @@ Route::get('/hhome', function () {
 });
 Route::get('/index', [MasterRenderController::class, 'index']);
 // Route::get('/car/{id}', [CarDetailsRenderController::class, 'index'])->name('carDetail.index');
+
+
+
