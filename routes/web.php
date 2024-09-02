@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Facades\Auth;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\TesteimonialController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\MasterRenderController;
+use App\Http\Controllers\userrentals;
 
 Route::get('/', function () {
     return view('welcome');
@@ -158,7 +160,7 @@ Route::delete('dashboard/contact/{contact}', [ContactController::class , "destro
 // add the create and store (tamimi)
 //^ ----------------------------------contact route end-----------------------------------------
 Route::get('/dash', function () {
-    return view('dashboard');
+    return view('dashboard.dash.main');
 })->middleware(['auth','admin']);
 
 
@@ -166,8 +168,17 @@ Route::get('/dash', function () {
 /////////////////////////// dashboard
 
 Route::get('/hhome', function () {
-    return view('hhome');
+    return view('index');
 });
+
+
+
+Route::get('log',[LoginController::class,'log'])->name("logg");
+
+///////////////////////// 
+
+
+
 Route::get('/index', [MasterRenderController::class, 'index']);
 // Route::get('/car/{id}', [CarDetailsRenderController::class, 'index'])->name('carDetail.index');
 
