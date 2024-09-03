@@ -17,19 +17,14 @@ use App\Http\Controllers\CarReservationController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\TesteimonialController;
 use App\Http\Controllers\ReviewController;
-
-
 use App\Http\Controllers\MasterRenderController;
 use App\Http\Controllers\userrentals;
+use App\Http\Controllers\OurCarController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 // Auth::routes();
-
 
 Route::get('/car/{id}', [CarDetailsRenderController::class, 'show'])->name('car.details');
 Route::post('/car/{id}/comment', [CarDetailsRenderController::class, 'addComment'])->name('car.addComment');
@@ -53,13 +48,16 @@ Route::put('/dashboard/admin/{admin}',[DashboardController::class, 'update'])->n
 //^ ----------------------------------dashboard route end-----------------------------------------
 
 
-Route::get('/index', function () {
-    return view('master.index');
-});
+// Route::get('/index', function () {
+//     return view('master.index');
+// });
+// Route::get('/carcat', [OurCarController::class, 'index'])->name('car.list');
 
-Route::get('/carcat', function () {
-    return view('master.carcat');
-});
+// Route::get('/carcat', function () {
+//     return view('master.carcat');
+// });
+
+Route::get('/carcat', [OurCarController::class, 'index'])->name('car.list');
 
 Route::get('/about', function () {
     return view('master.about');
@@ -182,5 +180,6 @@ Route::get('log',[LoginController::class,'log'])->name("logg");
 
 
 
-Route::get('/index', [MasterRenderController::class, 'index']);
+Route::get('/', [MasterRenderController::class, 'index']);
+
 // Route::get('/car/{id}', [CarDetailsRenderController::class, 'index'])->name('carDetail.index');

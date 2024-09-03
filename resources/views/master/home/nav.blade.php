@@ -18,7 +18,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav mx-auto py-0">
-                            <a href="{{url('index')}}" class="nav-item nav-link active">Home</a>
+                            <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
                             <a href="{{url('about')}}" class="nav-item nav-link">About</a>
                             <a href="{{url('service')}}" class="nav-item nav-link">Service</a>
                             <a href="{{url('carcat')}}" class="nav-item nav-link">Our Cars</a>
@@ -58,14 +58,14 @@
 
 <!-- ////////////////////////////////// تجربه -->
 
-<!-- <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+ <a href="{{ route('logout') }}"  class="btn btn-primary rounded-pill py-2 px-4 m-4 px-4" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
      logout
 
-</a> -->
-<!-- 
+</a> 
+
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
-</form> -->
+</form> 
 
 
 <!-- ///////////////////////////// /////////////////////// -->

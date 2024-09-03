@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/cardeatil.css">
+    <link rel="stylesheet" href="/css/cardeatil.css"> 
+
+
+
+
+
+
+
+<!-- Google Web Fonts -->
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
 </head>
 <body>
     |@include('master.home.nav')
@@ -166,9 +200,10 @@
         });
     </script>
 
-    @include('master.home.foot')
+   
 </body>
 </html>
+
 
 {{-- @foreach ($images as $index => $image)
 <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">

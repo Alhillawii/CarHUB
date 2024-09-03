@@ -110,7 +110,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    @include('master.home.first')
+    @include('master.home.nav')
     <div class="container py-4">
         <div class="row g-0 align-items-center">
             <div class="col-lg-6 mb-5 mb-lg-0">
@@ -175,4 +176,5 @@
                 <img src="https://i.brecorder.com/primary/2021/06/60d48302d4a99.jpg" class="w-100 rounded-4 shadow-4" alt="" />
             </div>
         </div>
+       
     </div>
