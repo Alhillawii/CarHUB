@@ -10,6 +10,7 @@ class RentalsController extends Controller
     public function index()
     {
         $rentals = Rentals::all();
+        
         return view('dashboard.rental.index',['rentals'=>$rentals]);
     }
 

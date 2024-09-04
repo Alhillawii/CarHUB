@@ -57,7 +57,6 @@
         </div>
     </div>
     <script>
-        // Wait until the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             // Select all delete buttons with the class 'dlt-btn-t'
             const deleteButtons = document.querySelectorAll('.dlt-btn-t');
