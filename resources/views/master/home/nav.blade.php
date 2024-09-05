@@ -8,11 +8,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a href="" class="navbar-brand p-0">
-                        <h1 class="display-6 text-danger fw-bold"><i class="fas fa-car-alt me-3"></i></i>Car Hub</h1>
-                        <!-- <img src="img/logo.png" alt="Logo"> -->
-                    </a>
+                 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars"></span>
                     </button>
