@@ -33,11 +33,11 @@ body::before {
     z-index: -1;
 }
 
-.container {
-    max-width: 1200px;
-    margin-top: 2rem;
-    padding: 1rem;
-}
+/*.container {*/
+/*    max-width: 1200px;*/
+/*    margin-top: 2rem;*/
+/*    padding: 1rem;*/
+/*}*/
 
 .card {
     background: var(--card-bg);
@@ -46,10 +46,14 @@ body::before {
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     border: none;
     color: #f8f9fa;
-}
 
+}
+.car-info
+{
+    background-color:  var(--card-bg);
+}
 .card-header {
-    background-color: transparent;
+    background-color:  var(--card-bg);
     border-bottom: none;
     text-align: center;
 }
@@ -58,6 +62,7 @@ body::before {
     font-family: var(--heading-font);
     font-size: 1.75rem;
     margin-bottom: 0.5rem;
+
 }
 
 .card-body {
@@ -95,14 +100,14 @@ body::before {
 .form-label {
     font-weight: 700;
     font-family: var(--heading-font);
-    color: #ffffff;
+    color:var(--secondary-color) ;
     margin-bottom: 0.5rem;
 }
 
 .price-display, .car-name-display, .car-desc-display, .model-year-display {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color : #919191;
 }
 
 .form-select, .form-control {

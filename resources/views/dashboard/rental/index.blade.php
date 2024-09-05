@@ -1,5 +1,5 @@
 @extends('dashboard.layout.master')
-@section('title','rental')
+@section('title','Rentals')
 
 @section('content')
 

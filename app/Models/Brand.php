@@ -18,4 +18,5 @@ class Brand extends Model
 
 
      public $guarded=[];
+
 }

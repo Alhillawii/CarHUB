@@ -81,11 +81,11 @@ class ReviewController extends Controller
         $review = Review::find($id);
 
         if (!$review) {
-            return redirect()->route('dashboard.review.index')->with('error', 'Review not found.');
+            return redirect()->route('reviews.index')->with('error', 'Review not found.');
         }
 
         $review->delete();
 
-        return redirect()->route('dashboard.review.index')->with('success', 'Review deleted successfully.');
+        return redirect()->route('reviews.index')->with('success', 'Review deleted successfully.');
     }
 }

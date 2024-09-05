@@ -1,5 +1,5 @@
 @extends('dashboard.layout.master')
-@section('title','create barnd')
+@section('title','Create Barnd')
 @section('content')
     <div class="text-left">
         <button class="btn ">

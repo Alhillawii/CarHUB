@@ -1,5 +1,5 @@
 @extends('dashboard.layout.master')
-
+@section('title', 'Car Reviews')
 @section('content')
     <div class="card">
         <h5 class="card-header">Reviews List</h5>

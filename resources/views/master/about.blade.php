@@ -1,12 +1,6 @@
 @include('master.home.first')
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+
 
 
 
@@ -24,7 +18,7 @@
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
                     <li class="breadcrumb-item active text-primary">About</li>
-                </ol>    
+                </ol>
             </div>
         </div>
         <!-- Header End -->
@@ -37,10 +31,10 @@
                         <div class="about-item">
                             <div class="pb-5">
                                 <h1 class="display-5 text-capitalize">CarHup <span class="text-primary"> About </span></h1>
-                                <p class="mb-0">Welcome to <label style = color:#ea001e>Car Hub</label>, your trusted partner in seamless and reliable car booking services. 
-                                    We are dedicated to providing a hassle-free and convenient experience for our customers, 
-                                    ensuring that your journey begins and ends with comfort and satisfaction. 
-                                    Our commitment to excellence drives us to offer competitive prices, 
+                                <p class="mb-0">Welcome to <label style = color:#ea001e>Car Hub</label>, your trusted partner in seamless and reliable car booking services.
+                                    We are dedicated to providing a hassle-free and convenient experience for our customers,
+                                    ensuring that your journey begins and ends with comfort and satisfaction.
+                                    Our commitment to excellence drives us to offer competitive prices,
                                      user-friendly booking options, and top-notch customer service.
                                      At <label style = color:#ea001e>Car Hub</label>, we go the extra mile to ensure that you travel in style and safety, every time.
                                 </p>
@@ -73,9 +67,9 @@
                                         <h5 class="text-light mb-0">Years Of Experience</h5>
                                     </div>
                                 </div>
-                              
-                               
-                               
+
+
+
                             </div>
                         </div>
                     </div>
@@ -94,16 +88,16 @@
         </div>
         <!-- About End -->
 
-      
-       
 
-       
-       
+
+
+
+
 
         <!-- Footer Start -->
        @include('master.home.foot')
         <!-- Footer End -->
-        
+
         <!-- Copyright Start -->
        @include('master.home.copyright')
         <!-- Copyright End -->
@@ -111,6 +105,6 @@
 
         <!-- Back to Top -->
        @include('master.home.top')
-        
+
     <!-- JavaScript Libraries -->
    @include('master.home.last')

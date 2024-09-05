@@ -1,5 +1,5 @@
 @extends('dashboard.layout.master')
-
+@section('title','Brand View')
 @section('content')
     <div class="text-left">
         <button class="btn ">
@@ -11,11 +11,11 @@
         <div class="card-body">
             <div class="mb-3">
                 <label for="brandId" class="form-label">Brand ID:</label>
-                <input type="text" class="form-control" id="brandId" value="{{ $brand->id }}" readonly>
+                <p >{{ $brand->id }} </p>
             </div>
             <div class="mb-3">
                 <label for="brandName" class="form-label">Brand Name:</label>
-                <input type="text" class="form-control" id="brandName" value="{{ $brand->name }}" readonly>
+                <p>  {{ $brand->name }}</p>
             </div>
             <div class="mb-3">
                 <label for="brandLogo" class="form-label">Brand Logo:</label><br>
