@@ -32,55 +32,41 @@
                             <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="bg-secondary rounded p-5">
                                     <h4 class="text-white mb-4">CONTINUE CAR RESERVATION</h4>
-                                    <form>
+                                    <form action="{{ route('filter.cars') }}" method="GET">
                                         <div class="row g-3">
                                             <div class="col-12">
-                                                <select class="form-select" aria-label="Default select example">
+                                                <select name="car_type" class="form-select" aria-label="Select Your Car type">
                                                     <option selected>Select Your Car type</option>
-                                                    <option value="1">VW Golf VII</option>
-                                                    <option value="2">Audi A1 S-Line</option>
-                                                    <option value="3">Toyota Camry</option>
-                                                    <option value="4">BMW 320 ModernLine</option>
+                                                    <option value="sedan" selected="">Sedan</option>
+                            <option value="hatchback">Hatchback</option>
+                            <option value="suv">SUV</option>
+                            <option value="coupe">Coupe</option>
+                            <option value="sportscare">Sportscare</option>
+                            <option value="crossover">Crossover</option>
+                            <option value="jeep">Jeep</option>
+                            <option value="limousine">Limousine</option>
+                            <option value="pickup">Pickup</option>
                                                 </select>
                                             </div>
-                                            
-                                            
+                                    
                                             <div class="col-12">
-                                                <div class="input-group">
-                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                       
-                                                    </div>
-                                                    <select class="form-select ms-3" aria-label="Default select example">
-                                                        <option selected>12:00AM</option>
-                                                        <option value="1">1:00AM</option>
-                                                        <option value="2">2:00AM</option>
-                                                        <option value="3">3:00AM</option>
-                                                        <option value="4">4:00AM</option>
-                                                        <option value="5">5:00AM</option>
-                                                        <option value="6">6:00AM</option>
-                                                        <option value="7">7:00AM</option>
-                                                    </select>
-                                                </div>
+                                                <select name="seats" class="form-select" aria-label="Select Number of Seats">
+                                                    <option selected>Select Number of Seats</option>
+                                                    <option value="2">2</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="7">7</option>
+                                                </select>
                                             </div>
+                                    
                                             <div class="col-12">
-                                                <div class="input-group">
-                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                        
-                                                    </div>
-                                                    <select class="form-select ms-3" aria-label="Default select example">
-                                                        <option selected>12:00AM</option>
-                                                        <option value="1">1:00AM</option>
-                                                        <option value="2">2:00AM</option>
-                                                        <option value="3">3:00AM</option>
-                                                        <option value="4">4:00AM</option>
-                                                        <option value="5">5:00AM</option>
-                                                        <option value="6">6:00AM</option>
-                                                        <option value="7">7:00AM</option>
-                                                    </select>
-                                                </div>
+                                                <input type="text" name="min_price" class="form-control mb-2" placeholder="Min Price" aria-label="Minimum Price">
+                                                <input type="text" name="max_price" class="form-control" placeholder="Max Price" aria-label="Maximum Price">
+                                                
                                             </div>
+                                    
                                             <div class="col-12">
-                                                <button class="btn btn-light w-100 py-2">Book Now</button>
+                                                <button type="submit" class="btn btn-light w-100 py-2">Book Now</button>
                                             </div>
                                         </div>
                                     </form>
@@ -88,8 +74,8 @@
                             </div>
                             <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="text-start">
-                                    <h1 class="display-5 text-white">Get 15% off your rental Plan your trip now</h1>
-                                    <p>Treat yourself in USA</p>
+                                    <h1 class="display-5 text-white">Welcome to <span style = color:#ea001e>CarHub</span>  your number 1 car rentals website .</h1>
+                                    <p>Treat yourself in Jordan</p>
                                 </div>
                             </div>
                         </div>
@@ -181,13 +167,13 @@
                     <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
                         <div class="about-item">
                             <div class="pb-5">
-                                <h1 class="display-5 text-capitalize">CarHup <span class="text-primary"> About </span></h1>
+                                <h1 class="display-5 text-capitalize">CarHub <span class="text-primary"> About </span></h1>
                                 <p class="mb-0">Welcome to <label style = color:#ea001e>CarHub</label>, your trusted partner in seamless and reliable car booking services. 
                                     We are dedicated to providing a hassle-free and convenient experience for our customers, 
                                     ensuring that your journey begins and ends with comfort and satisfaction. 
                                     Our commitment to excellence drives us to offer competitive prices, 
                                      user-friendly booking options, and top-notch customer service.
-                                     At <label style = color:#ea001e>Car Hub</label>, we go the extra mile to ensure that you travel in style and safety, every time.
+                                     At <label style = color:#ea001e>CarHub</label>, we go the extra mile to ensure that you travel in style and safety, every time.
                                 </p>
                             </div>
                             <div class="row g-4">
@@ -304,7 +290,7 @@
 <div class="container-fluid blog py-5">
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <h1 class="display-5 text-capitalize mb-3">Cental<span class="text-primary"> Blog & News</span></h1>
+            <h1 class="display-5 text-capitalize mb-3">OUR<span class="text-primary"> Latest Cras</span></h1>
         </div>
         <div class="row g-4">
             @foreach($cars as $car)

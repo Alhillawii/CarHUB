@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -38,7 +39,31 @@ class LoginController extends Controller
         $this->middleware('auth')->only('logout');
     }
 
-    public function log() {
-        return view("/login");
+    /**
+     * Handle user redirection after authentication based on their role.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+{
+    if ($user->role == "1" || $user->role == "-1") {
+        // Redirect admin or super admin to the dashboard
+        return redirect()->route('dashboard');
+    }
+
+    // Redirect regular users to the home page
+    return redirect('/');
+}
+
+    /**
+     * Custom login view.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function log()
+    {
+        return view('login');
     }
 }

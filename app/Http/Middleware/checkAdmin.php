@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class checkAdmin
 {
@@ -18,14 +18,20 @@ class checkAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->role == "1") {
-            return $next($request);
+        if (Auth::check()) {
+            $user = Auth::user();
+    
+            // If the user is an admin or super admin, allow access
+            if ($user->role == "1" || $user->role == "-1") {
+                return $next($request);
+            }
+    
+            // Prevent regular users from accessing anything starting with 'dashboard'
+            if ($user->role == "0" && $request->is('dashboard*')) {
+                return redirect('/');
+            }
         }
-
-            return redirect('/index');
+    
+        return redirect()->route('login');
     }
-
 }
-
-
-//// 0 user    /    -1 superadmin    / 1 admin
