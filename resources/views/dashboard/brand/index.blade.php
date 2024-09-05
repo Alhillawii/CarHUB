@@ -1,5 +1,5 @@
 @extends('dashboard.layout.master')
-
+@section('title','Brands')
 @section('content')
     <div class="text-left">
         <a  href="{{ route('brands.create') }}" class="btn btn-success waves-effect waves-light">+Add Brand</a>

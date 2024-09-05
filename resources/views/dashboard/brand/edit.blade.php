@@ -1,4 +1,5 @@
 @extends('dashboard.layout.master')
+@section('title','Edit Barnd')
 
 @section('content')
     <div class="text-left">

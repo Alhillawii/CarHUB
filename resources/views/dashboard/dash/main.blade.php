@@ -1,4 +1,6 @@
 @extends('dashboard.layout.master')
+@section('title','Dashboard')
+
 @section('content')
     <!-- Congratulations card -->
     <div class="col-md-12 col-lg-4">

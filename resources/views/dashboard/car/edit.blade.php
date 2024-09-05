@@ -1,5 +1,5 @@
 @extends('dashboard.layout.master')
-@section('title','edit Car')
+@section('title','Edit Car')
 
 @section('content')
     <div class="text-left">

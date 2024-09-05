@@ -1,5 +1,5 @@
 @extends('dashboard.layout.master')
-@section('title','admin')
+@section('title','Admin Profile')
 @section('content')
     <div class="text-left">
         <button class="btn ">

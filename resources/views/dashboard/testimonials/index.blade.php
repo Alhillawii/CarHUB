@@ -1,5 +1,5 @@
 @extends('dashboard.layout.master')
-
+@section('title', 'Testimonials')
 @section('content')
     <div class="card">
         <h5 class="card-header">Testimonials</h5>
@@ -16,13 +16,15 @@
                 </thead>
                 <tbody class="table-border-bottom-0">
                 @foreach ($testimonials as $testimonial)
+{{--                    @foreach(\App\Models\User::all() as $testimonial)--}}
                     <tr>
                         <td>{{$loop->iteration }}</td>
                         <td>
                             <i class="ri-chat-quote-line ri-22px text-info me-4"></i>
                             <span>{{ $testimonial->review }}</span>
                         </td>
-                        <  <td>{{ $testimonial->user->name }}</td>
+{{--                                @dd($testimonial->user);--}}
+                        <td>{{$testimonial->user->name}}</td>
                         <td>{{ $testimonial->user->status }}</td>
                         <td>
                             @if ($testimonial->trashed())

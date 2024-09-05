@@ -6,21 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Rental Details</title>
+    <meta name="keywords" content="Car rentals, Affordable car rentals, Rent a car, Luxury car rental, Economy car rentals, Car hire, Vehicle rental, Long-term car rentals, SUV rentals, Airport car rentals, Cheap car rentals, Car booking">
+    <meta name="description" content="CarHub - Affordable car rental services offering luxury, economy, and SUV rentals with flexible plans and great deals.">
+    <meta name="author" content="CarHub">
+
+    {{-- icon--}}
+    <link rel="icon" type="image/x-icon" href="{{asset('img/home.ico')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/cardeatil.css"> 
+    <link rel="stylesheet" href="{{asset('/css/cardeatil.css')}}">
 
 
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-
-
-
-
-<!-- Google Web Fonts -->
 
         <!-- Icon Font Stylesheet -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
         <!-- Libraries Stylesheet -->
         <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -28,23 +34,17 @@
 
 
         <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
         <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-
-
-
-
-
-
-
-
-
+        <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
 </head>
 <body>
-    |@include('master.home.nav')
+<div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0 bg-light mb-5">
+    @include('master.home.nav')
+</div>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-4">
@@ -68,12 +68,12 @@
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <div class="card mb-4">
-                    <div class="card-header">
+            <div class="col-lg-6 ">
+                <div class="card mb-4 ">
+                    <div class="card-header ">
                         <h3>Car Details</h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body ">
                         <div id="rentalForm">
                             <div class="mb-3">
                                 <label class="form-label">Car Model:</label>
@@ -152,7 +152,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Add Comment</button>
                     </form>
-                    
+
                 </div>
             </div>
         </div>
@@ -200,9 +200,7 @@
         });
     </script>
 
-   
-</body>
-</html>
+
 
 
 {{-- @foreach ($images as $index => $image)
@@ -210,3 +208,18 @@
     <img src="{{ $image->path }}" alt="Car Image" class="d-block w-100">
 </div>
 @endforeach --}}
+
+<!-- Footer Start -->
+@include('master.home.foot')
+<!-- Footer End -->
+
+<!-- Copyright Start -->
+@include('master.home.copyright')
+<!-- Copyright End -->
+
+
+<!-- Back to Top -->
+@include('master.home.top')
+
+<!-- JavaScript Libraries -->
+@include('master.home.last')
