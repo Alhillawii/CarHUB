@@ -21,6 +21,7 @@ use App\Http\Controllers\MasterRenderController;
 use App\Http\Controllers\userrentals;
 use App\Http\Controllers\OurCarController;
 use App\Http\Controllers\carfiltercontroller;
+use App\Http\Controllers\UserProfileController;
 
 Route::get('/car/{id}', [CarDetailsRenderController::class, 'show'])->name('car.details');
 Route::post('/car/{id}/comment', [CarDetailsRenderController::class, 'addComment'])->name('car.addComment');
@@ -158,3 +159,8 @@ Route::get('/filter-cars', [carfiltercontroller::class, 'filterCars'])->name('fi
 
 
 // Route::get('/car/{id}', [CarDetailsRenderController::class, 'index'])->name('carDetail.index');
+///////////////USERPROFILE////////////////
+Route::middleware(['auth'])->group(function() {
+    Route::get('/userprofile', [UserProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/userprofile', [UserProfileController::class, 'update'])->name('profile.update');
+});
