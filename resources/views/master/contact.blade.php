@@ -72,80 +72,122 @@
             </div>
         </div>
 
-
-        <div class="col-xl-12 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="bg-secondary p-5 rounded">
-                <h4 class="text-primary mb-4">Send Your Message</h4>
-                <form action="{{ route('contact.store') }}" method="POST">
-
-                @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
+<!-- Contact Form Start -->
+<div class="col-xl-12 wow fadeInUp" data-wow-delay="0.1s" style="margin-bottom: 50px;"> <!-- Add bottom margin here -->
+    <div class="bg-secondary p-5 rounded">
+        <h4 class="text-primary mb-4">Send Your Message</h4>
+        <form action="{{ route('contact.store') }}" method="POST">
+            @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            <script>
+                // Set a timeout to hide the success message after 1 minute (60000 milliseconds)
+                setTimeout(function() {
+                    var message = document.getElementById('success-message');
+                    if (message) {
+                        message.style.display = 'none';
+                    }
+                }, 60000); // 60000 milliseconds = 1 minute
+            </script>
+            @endif
+            <br>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            @csrf
+            <div class="row g-4">
+                <div class="col-lg-12 col-xl-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" value="{{ old('name') }}">
+                        <label for="name">Your Name</label>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xl-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" value="{{ old('email') }}">
+                        <label for="email">Your Email</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" value="{{ old('subject') }}">
+                        <label for="subject">Subject</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 160px">{{ old('message') }}</textarea>
+                        <label for="message">Message</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-light w-100 py-3" type="submit">Send Message</button>
+                </div>
+            </div>
+        </form>
     </div>
-    <script>
-        // Set a timeout to hide the success message after 1 minute (60000 milliseconds)
-        setTimeout(function() {
-            var message = document.getElementById('success-message');
-            if (message) {
-                message.style.display = 'none';
-            }
-        }, 60000); // 60000 milliseconds = 1 minute
-    </script>
-    @endif
-    <br>
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-    @csrf
-    <div class="row g-4">
-        <div class="col-lg-12 col-xl-6">
-            <div class="form-floating">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" value="{{ old('name') }}">
-                <label for="name">Your Name</label>
-            </div>
-        </div>
-        <div class="col-lg-12 col-xl-6">
-            <div class="form-floating">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" value="{{ old('email') }}">
-                <label for="email">Your Email</label>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="form-floating">
-                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" value="{{ old('subject') }}">
-                <label for="subject">Subject</label>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 160px">{{ old('message') }}</textarea>
-                <label for="message">Message</label>
-            </div>
-        </div>
-        <div class="col-12">
-            <button class="btn btn-light w-100 py-3" type="submit">Send Message</button>
-        </div>
-    </div>
-
-</form>
-
 </div>
-</div>
-<!-- Contact End -->
+<!-- Contact Form End -->
 
 <!-- Footer Start -->
-@include('master.home.foot')
-<!-- Footer End -->
 
-<!-- Copyright Start -->
+<div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s" >
+            <div class="container py-5">
+                <div class="row g-5 justify-content-center">
+
+                    <div class="col-md-6 col-lg-6 col-xl-3" >
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Quick Links</h4>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> About</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Cars</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contact us</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Business Hours</h4>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0">Mon - Friday:</h6>
+                                <p class="text-white mb-0">09.00 am to 07.00 pm</p>
+                            </div>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0">Saturday:</h6>
+                                <p class="text-white mb-0">10.00 am to 05.00 pm</p>
+                            </div>
+                            <div class="mb-3">
+                                <h6 class="text-muted mb-0">Vacation:</h6>
+                                <p class="text-white mb-0">All Sunday is our vacation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Contact Info</h4>
+                            <a href="#"><i class="fa fa-map-marker-alt me-2"></i>Jordan , Aqaba</a>
+                            <a href="mailto:info@example.com"><i class="fas fa-envelope me-2"></i> Carhub24@gmail.com</a>
+                            <a href="tel:+012 345 67890"><i class="fas fa-phone me-2"></i>0797085792</a>
+                            <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"></i>0775453200</a>
+                            <div class="d-flex">
+                                <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-facebook-f text-white"></i></a>
+                                <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-twitter text-white"></i></a>
+                                <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-instagram text-white"></i></a>
+                                <a class="btn btn-secondary btn-md-square rounded-circle me-0" href=""><i class="fab fa-linkedin-in text-white"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Footer End -->
 @include('master.home.copyright')
-<!-- Copyright End -->
 
 
 <!-- Back to Top -->

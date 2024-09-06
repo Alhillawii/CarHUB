@@ -1,4 +1,3 @@
-
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
         <a href="" class="navbar-brand p-0">
@@ -8,10 +7,6 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>
-                 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars"></span>
-                    </button>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
@@ -27,7 +22,11 @@
                     @if(Auth::user()->role === 1)
                         <a href="{{ url('/dashboard') }}" class="btn btn-primary rounded-pill py-2 px-4">Dashboard</a>
                     @endif
-                    <a href="{{ route('logout') }}" class="btn btn-primary rounded-pill py-2 px-4 m-4 px-4" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                    <!-- Profile Button -->
+                    <a href="{{ url('/userprofile') }}" class="btn btn-primary rounded-pill py-2 px-4">Profile</a>
+                    
+                    <a href="{{ route('logout') }}" class="btn btn-primary rounded-pill py-2 px-4 m-4 px-4" 
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
