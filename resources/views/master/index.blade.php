@@ -183,7 +183,7 @@
                                             <img src="img/about-icon-1.png" class="img-fluid w-50 h-50" alt="Icon">
                                         </div>
                                         <h5 class="mb-3">Our Vision</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <p class="mb-0">At CarHub, we envision a world where car rental seamlessly integrates into your lifestyle.</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -192,7 +192,7 @@
                                             <img src="img/about-icon-2.png" class="img-fluid h-50 w-50" alt="Icon">
                                         </div>
                                         <h5 class="mb-3">Our Mision</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <p class="mb-0">Our mission is to enhance your mobility experience through innovation and exceptional customer service.</p>
                                     </div>
                                 </div>
                             </div>

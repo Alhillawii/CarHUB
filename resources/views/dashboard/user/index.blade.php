@@ -40,12 +40,15 @@
                     <td>{{$user->created_at->format('y-m-d')}}</td>
                     <td >
                                 <a class="btn btn-info p-2 btn-sm" href="{{route("user.show", $user->id)}}">View </a>
-                                <a class="btn btn-primary p-2 btn-sm " href="{{route("user.edit", $user->id)}}">Edit</a>
+                        @if(Auth::user()->role === -1)
+
+                        <a class="btn btn-primary p-2 btn-sm " href="{{route("user.edit", $user->id)}}">Edit</a>
                         <form style="display:inline;" method="post" action="{{route('user.destroy', $user->id)}}">
                             @csrf
                             @method('delete')
                             <button type="submit"  class="btn btn-danger p-2 btn-sm dlt-btn-t">Delete</button>
                         </form>
+                        @endif
                     </td>
                 </tr>
                 @endforeach

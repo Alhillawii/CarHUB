@@ -20,18 +20,17 @@ class checkAdmin
     {
         if (Auth::check()) {
             $user = Auth::user();
-    
+
             // If the user is an admin or super admin, allow access
             if ($user->role == "1" || $user->role == "-1") {
                 return $next($request);
             }
-    
+
             // Prevent regular users from accessing anything starting with 'dashboard'
             if ($user->role == "0" && $request->is('dashboard*')) {
                 return redirect('/');
             }
         }
-    
         return redirect()->route('login');
     }
 }

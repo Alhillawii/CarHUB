@@ -149,6 +149,8 @@ body::before {
 .comments-section h3 {
     font-family: var(--heading-font);
     margin-bottom: 1rem;
+    color: white;
+    font-weight: bo;
     text-align: center;
 }
 
@@ -184,6 +186,7 @@ body::before {
     margin-bottom: 0.75rem;
     position: relative;
     transition: transform 0.2s ease;
+    color: white;
 }
 
 .comment:hover {
@@ -226,9 +229,14 @@ body::before {
 .comment-form textarea:focus {
     background: rgba(255, 255, 255, 0.3);
     outline: none;
+    color: white;
     box-shadow: 0 0 0 0.2rem var(--primary-color);
 }
+.comment-form .form-label{
+    color: white;
 
+
+}
 .alert {
     display: none;
 }
@@ -250,5 +258,6 @@ body::before {
 
     .comments-section {
         padding: 1rem;
+
     }
 }
