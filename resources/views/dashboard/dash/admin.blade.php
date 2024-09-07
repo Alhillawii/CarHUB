@@ -15,7 +15,14 @@
             </div>
         </div>
         <div class="card-body pt-0">
-            <form id="formAccountSettings" method="POST" action="{{route('dashboard.admin.update',Auth::user()->id)}}" >
+            <!-- Show success alert if session has a success message -->
+            @if(session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <form id="formAccountSettings" method="POST" action="{{route('dashboard.admin.update',Auth::user()->id)}}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row mt-1 g-5">
@@ -41,6 +48,12 @@
                         </div>
                     </div>
 
+                    <div class="col-md-6">
+                        <div class="form-floating form-floating-outline">
+                            <input type="file" id="profileImage" name="image" class="form-control">
+                            <label for="profileImage">Change Profile Image</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="mt-6">
                     <button type="submit" class="btn btn-primary me-3 waves-effect waves-light">Save changes</button>
