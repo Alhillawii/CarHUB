@@ -24,6 +24,7 @@
                             <span>{{ $testimonial->review }}</span>
                         </td>
                         <td>{{$testimonial->user->name}}</td>
+
                         <td>
                             @if ($testimonial->trashed())
                                 <span class="badge rounded-pill bg-label-danger me-1">Deleted</span>

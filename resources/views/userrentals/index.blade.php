@@ -13,8 +13,29 @@
             display: none;
         }
     </style>
+    @include('master.home.nav')
 </head>
 <body>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
+            <div class="position-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url('/userprofile') }}">
+                            <i class="fas fa-user"></i> My Profile
+                        </a>
+                    </li>
+                    <!-- You can add more navigation items here -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/userrentals') }}">
+                            <i class="fas fa-car"></i> User Car
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     <div class="container mt-5">
         <h1 class="mb-4" style="color: var(--secondary-color);">My Rented Cars</h1>
         <div class="form-group mb-4">
@@ -53,6 +74,8 @@
             @endforelse
         </div>
     </div>
+
+    @include('master.home.foot')
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="/js/search.js"></script>
     <script>

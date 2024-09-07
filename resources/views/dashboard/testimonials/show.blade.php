@@ -1,5 +1,4 @@
 @extends('dashboard.layout.master')
-@section('title', 'View Testimonial')
 
 @section('content')
     <div class="text-left">
