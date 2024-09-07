@@ -250,8 +250,8 @@
                         <h4 class="mb-0">${{$rentals->count()}}0K</h4>
                     </div>
                     <div class="card-body">
-                        <div id="totalProfitLineChart" class="mb-3"></div>
-                        <h6 class="text-center mb-0">Total Profit</h6>
+
+                        <h6 class="text-left mb-0">Total Profit</h6>
                     </div>
                 </div>
             </div>
@@ -287,22 +287,7 @@
                                 <i class="ri-file-word-2-line ri-24px"></i>
                             </div>
                         </div>
-                        <div class="dropdown">
-                            <button
-                                class="btn text-muted p-0"
-                                type="button"
-                                id="newProjectID"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false">
-                                <i class="ri-more-2-line ri-24px"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="newProjectID">
-                                <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Update</a>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="card-body">
                         <h6 class="mb-1">Testimonial</h6>
@@ -322,8 +307,8 @@
                         <h4 class="mb-0">{{$cars->count()}}0</h4>
                     </div>
                     <div class="card-body">
-                        <div id="sessionsColumnChart" class="mb-3"></div>
-                        <h6 class="text-center mb-0">Cars</h6>
+
+                        <h6 class="text-left mb-0">Cars</h6>
                     </div>
                 </div>
             </div>

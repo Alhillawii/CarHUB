@@ -30,7 +30,7 @@
                     <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
                         <div class="about-item">
                             <div class="pb-5">
-                                <h1 class="display-5 text-capitalize">CarHup <span class="text-primary"> About </span></h1>
+                                <h1 class="display-5 text-capitalize">CarHub <span class="text-primary"> About </span></h1>
                                 <p class="mb-0">Welcome to <label style = color:#ea001e>Car Hub</label>, your trusted partner in seamless and reliable car booking services.
                                     We are dedicated to providing a hassle-free and convenient experience for our customers,
                                     ensuring that your journey begins and ends with comfort and satisfaction.
@@ -46,7 +46,7 @@
                                             <img src="img/about-icon-1.png" class="img-fluid w-50 h-50" alt="Icon">
                                         </div>
                                         <h5 class="mb-3">Our Vision</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <p class="mb-0">our vision is to revolutionize the car rental industry .</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -54,8 +54,8 @@
                                         <div class="about-icon mb-4">
                                             <img src="img/about-icon-2.png" class="img-fluid h-50 w-50" alt="Icon">
                                         </div>
-                                        <h5 class="mb-3">Our Mision</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <h5 class="mb-3">Our Mission</h5>
+                                        <p class="mb-0">Our mission is to make car rentals easy and accessible for everyone.</p>
                                     </div>
                                 </div>
                             </div>
