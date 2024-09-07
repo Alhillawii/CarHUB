@@ -9,13 +9,15 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav mx-auto py-0">
-                <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
-                <a href="{{url('about')}}" class="nav-item nav-link">About</a>
-                <a href="{{url('service')}}" class="nav-item nav-link">Service</a>
-                <a href="{{url('carcat')}}" class="nav-item nav-link">Our Cars</a>
-                <a href="{{url('contact')}}" class="nav-item nav-link">Contact</a>
-            </div>
+    <div class="navbar-nav mx-auto py-0">
+        <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
+        <a href="{{ url('about') }}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
+        <a href="{{ url('service') }}" class="nav-item nav-link {{ request()->is('service') ? 'active' : '' }}">Service</a>
+        <a href="{{ url('carcat') }}" class="nav-item nav-link {{ request()->is('carcat') ? 'active' : '' }}">Our Cars</a>
+        <a href="{{ url('contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact</a>
+    </div>
+</div>
+
 
             @if (Route::has('login'))
                 @auth
