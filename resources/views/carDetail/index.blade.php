@@ -208,6 +208,7 @@
     <img src="{{ $image->path }}" alt="Car Image" class="d-block w-100">
 </div>
 @endforeach --}}
+<br>
 
 <!-- Footer Start -->
 @include('master.home.foot')
