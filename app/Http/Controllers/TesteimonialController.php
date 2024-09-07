@@ -13,8 +13,8 @@ class TesteimonialController extends Controller
      */
     public function index()
     {
-        $testimonials = Testeimonial::all();
-        return view('dashboard.testimonials.index' ,['testimonials' => $testimonials]);
+        $testimonials = Testeimonial::withTrashed()->with('User')->get();
+        return view('dashboard.testimonials.index', compact('testimonials'));
     }
 
     /**

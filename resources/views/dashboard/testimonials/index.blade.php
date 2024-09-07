@@ -1,5 +1,5 @@
 @extends('dashboard.layout.master')
-@section('title', 'Testimonials')
+
 @section('content')
     <div class="card">
         <h5 class="card-header">Testimonials</h5>
@@ -10,29 +10,20 @@
                     <th>#</th>
                     <th>review</th>
                     <th>user_id</th>
-                    <th>status</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                 @foreach ($testimonials as $testimonial)
-{{--                    @foreach(\App\Models\User::all() as $testimonial)--}}
                     <tr>
                         <td>{{$loop->iteration }}</td>
                         <td>
                             <i class="ri-chat-quote-line ri-22px text-info me-4"></i>
                             <span>{{ $testimonial->review }}</span>
                         </td>
-{{--                                @dd($testimonial->user);--}}
-                        <td>{{$testimonial->user->name}}</td>
-                        <td>{{ $testimonial->user->status }}</td>
-                        <td>
-                            @if ($testimonial->trashed())
-                                <span class="badge rounded-pill bg-label-danger me-1">Deleted</span>
-                            @else
-                                <span class="badge rounded-pill bg-label-primary me-1">Active</span>
-                            @endif
-                        </td>
+                        
+
+                        
                         <td>
                             <a href="{{ route('testimonials.show', $testimonial->id) }}" class="btn btn-info btn-sm">View</a>
                             <form action="{{ route('testimonials.destroy', $testimonial->id) }}" method="POST" style="display:inline;">
