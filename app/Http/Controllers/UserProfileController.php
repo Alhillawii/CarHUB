@@ -2,53 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+
 
 class UserProfileController extends Controller
 {
     
     public function edit()
     {
-        $user = Auth::user();
-        return view('profile.edit', compact('user'));
+        $User = Auth::User();
+        return view('profile.edit', compact('User'));
     }
 
-  
     public function update(Request $request)
     {
-        $user = Auth::user();
-
+        $User = auth()->User(); // Assuming you're updating the authenticated user
+    
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-            'password' => 'nullable|confirmed|min:8',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048' ,
+            'email' => 'required|email|unique:users,email,' . $User->id,
+            'password' => 'nullable|min:8|confirmed',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-
-        if ($request->password) {
-            $user->password = Hash::make($request->password);
+    
+        // Update email
+        $User->email = $request->input('email');
+    
+        // Update password only if provided
+        if ($request->filled('password')) {
+            $User->password = bcrypt($request->input('password'));
         }
-
+    
+        // Handle image upload
         if ($request->hasFile('image')) {
-            if ($user->image) {
-                Storage::delete('public/images/' . $user->image);
+            // Delete the old image if exists
+            if ($User->image) {
+                Storage::delete('public/' . $User->image);
             }
-
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->storeAs('public/pimages', $imageName);
-
-            
-            $user-> image = $imageName;
+    
+            // Store the new image
+            $path = $request->file('image')->store('profile_images', 'public');
+            $User->image = $path;
         }
-
-        $user->save();
-
-        return redirect()->route('profile.edit')->with('success', 'Profile updated successfully.');
+    
+        // Save the user data
+        $User->save();
+    
+        return redirect()->back()->with('success', 'Profile updated successfully!');
     }
-}
+    }
