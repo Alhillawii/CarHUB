@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
             <div class="position-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -38,18 +38,27 @@
                 @csrf
                 @method('PUT')
 
-                <!-- Display current profile image -->
-                <div class="mb-3">
-                    @if($User->image)
-                        <img src="{{ asset('storage/' . $User->image) }}" alt="Profile Image" class="img-thumbnail" width="150">
-                    @else
-                        <p>No profile image</p>
-                    @endif
-                </div> 
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ $User->name }}" required>
+                </div>
 
+                <br>
+
+                <!-- Show current image -->
+                <!-- <div class="mb-3">
+                    <label for="current_image" class="form-label">Current Profile Image</label>
+                    @if ($User->image)
+                        <img src="{{ asset('storage/' . $User->image) }}" alt="Profile Image" class="img-fluid mb-3" style="max-width: 150px;">
+                    @else
+                        <p>No image uploaded</p>
+                    @endif
+                </div> -->
+
+                <!-- File input for uploading new image -->
                 <div class="form-floating form-floating-outline mb-6">
-                    <input type="file" name="image" class="form-control">
-                    <label class="form-label">Upload New Image</label>
+                    <input type="file" name="image" class="form-control" id="image">
+                    <label for="image" class="form-label">Upload new image</label>
                 </div>
 
                 <div class="mb-3">

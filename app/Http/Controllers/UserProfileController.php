@@ -14,43 +14,52 @@ class UserProfileController extends Controller
     
     public function edit()
     {
-        $User = Auth::User();
+        $User = Auth::user();
         return view('profile.edit', compact('User'));
     }
 
     public function update(Request $request)
     {
-        $User = auth()->User(); // Assuming you're updating the authenticated user
+        $User = Auth::user();
     
         $request->validate([
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $User->id,
             'password' => 'nullable|min:8|confirmed',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-    
+
         // Update email
         $User->email = $request->input('email');
-    
+
         // Update password only if provided
         if ($request->filled('password')) {
-            $User->password = bcrypt($request->input('password'));
+            $User->password = Hash::make($request->input('password'));
         }
-    
+
         // Handle image upload
+        $fileName = $User->image; // Keep the old image if no new one is uploaded
+
         if ($request->hasFile('image')) {
-            // Delete the old image if exists
-            if ($User->image) {
-                Storage::delete('public/' . $User->image);
-            }
-    
-            // Store the new image
-            $path = $request->file('image')->store('profile_images', 'public');
-            $User->image = $path;
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = time() . '.' . $extension;
+            $path = 'uploads/users/';
+            $file->move(public_path($path), $fileName);
+
+            // Update the image path if a new image was uploaded
+            $fileName = $path . $fileName;
         }
-    
-        // Save the user data
-        $User->save();
-    
+
+        // Update the user data
+        $User->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $User->password,
+            'image' => $fileName,
+        ]);
+
         return redirect()->back()->with('success', 'Profile updated successfully!');
     }
+
     }

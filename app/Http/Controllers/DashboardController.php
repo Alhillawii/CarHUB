@@ -8,6 +8,7 @@ use App\Models\Rentals;
 use App\Models\Transmission;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -49,27 +50,46 @@ class DashboardController extends Controller
         //
     }
 
-    public function update(Request $request ,User $admin)
+    public function update(Request $request, User $admin)
     {
-        $name = request()->name;
-        $email = request()->email;
-        $mobile = request()->mobile;
-
-
-        $admin->update(
-            [
-                'name'=>$name,
-                'email'=>$email,
-                'mobile'=>$mobile,
-
-            ]
-        );
-
-
-        //3- redirection to posts.show
-        return to_route('dashboard.admin.index');
+        // Get the authenticated user
+        $User = Auth::user();
+    
+        // Validate the request
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'mobile' => 'required|string|max:15',
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg'],
+        ]);
+    
+        // Initialize $fileName as null
+        $fileName = $User->image; // Keep the old image if no new one is uploaded
+    
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = time() . '.' . $extension;
+            $path = 'uploads/User/';
+            $file->move($path, $fileName);
+    
+            // Update the image path if a new image was uploaded
+            $fileName = $path . $fileName;
+        }
+    
+        // Update user details
+        $User->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'image' => $fileName,
+        ]);
+    
+        // Flash success message to session
+        return to_route('dashboard.admin.index')->with('success', 'Profile updated successfully!');
     }
-
+    
     public function destroy(Rentals $rentals)
     {
         //
