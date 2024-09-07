@@ -48,14 +48,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-4">
-                <div id="carImageSlider" class="carousel slide mb-3" data-bs-ride="carousel">
+                <div id="carImageSlider" class="carousel slide mb-3" data-bs-ride="carousel" style="height: 400px">
                     <div class="carousel-inner">
+                        @foreach($car->images as $image)
                         <div class="carousel-item active">
-                            <img src="https://images.pexels.com/photos/2127039/pexels-photo-2127039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Car Image" class="d-block w-100">
+                            <img src="{{asset($image->path)}}" alt="Car Image" class="img-fluid w-100 d-block " style="height: 400px; object-fit: cover;">
                         </div>
-                        <div class="carousel-item">
-                            <img src="https://images.pexels.com/photos/2127040/pexels-photo-2127040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Car Image" class="d-block w-100">
-                        </div>
+                        @endforeach
+
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carImageSlider" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -71,9 +71,10 @@
                 </div>
             </div>
         </div>
-
+    </div>
+</div>
 <!-- Contact Form Start -->
-<div class="col-xl-12 wow fadeInUp" data-wow-delay="0.1s" style="margin-bottom: 50px;"> <!-- Add bottom margin here -->
+<div class="col-md-12 wow fadeInUp container-fluid  px-5 " data-wow-delay="0.1s" style="margin-bottom: 50px;"> <!-- Add bottom margin here -->
     <div class="bg-secondary p-5 rounded">
         <h4 class="text-primary mb-4">Send Your Message</h4>
         <form action="{{ route('contact.store') }}" method="POST">

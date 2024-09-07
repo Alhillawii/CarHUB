@@ -48,7 +48,7 @@
                             <option value="pickup">Pickup</option>
                                                 </select>
                                             </div>
-                                    
+
                                             <div class="col-12">
                                                 <select name="seats" class="form-select" aria-label="Select Number of Seats">
                                                     <option selected>Select Number of Seats</option>
@@ -58,13 +58,13 @@
                                                     <option value="7">7</option>
                                                 </select>
                                             </div>
-                                    
+
                                             <div class="col-12">
                                                 <input type="text" name="min_price" class="form-control mb-2" placeholder="Min Price" aria-label="Minimum Price">
                                                 <input type="text" name="max_price" class="form-control" placeholder="Max Price" aria-label="Maximum Price">
-                                                
+
                                             </div>
-                                    
+
                                             <div class="col-12">
                                                 <button type="submit" class="btn btn-light w-100 py-2">Book Now</button>
                                             </div>
@@ -168,10 +168,10 @@
                         <div class="about-item">
                             <div class="pb-5">
                                 <h1 class="display-5 text-capitalize">CarHub <span class="text-primary"> About </span></h1>
-                                <p class="mb-0">Welcome to <label style = color:#ea001e>CarHub</label>, your trusted partner in seamless and reliable car booking services. 
-                                    We are dedicated to providing a hassle-free and convenient experience for our customers, 
-                                    ensuring that your journey begins and ends with comfort and satisfaction. 
-                                    Our commitment to excellence drives us to offer competitive prices, 
+                                <p class="mb-0">Welcome to <label style = color:#ea001e>CarHub</label>, your trusted partner in seamless and reliable car booking services.
+                                    We are dedicated to providing a hassle-free and convenient experience for our customers,
+                                    ensuring that your journey begins and ends with comfort and satisfaction.
+                                    Our commitment to excellence drives us to offer competitive prices,
                                      user-friendly booking options, and top-notch customer service.
                                      At <label style = color:#ea001e>CarHub</label>, we go the extra mile to ensure that you travel in style and safety, every time.
                                 </p>
@@ -204,9 +204,9 @@
                                         <h5 class="text-light mb-0">Years Of Experience</h5>
                                     </div>
                                 </div>
-                              
-                               
-                               
+
+
+
                             </div>
                         </div>
                     </div>
@@ -297,9 +297,9 @@
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="blog-item">
                         <div class="blog-img">
-                            
+
                             <img src="{{ asset($car->images->first()->path) }}" class="img-fluid rounded-top w-100" alt="{{ $car->name }}">
-                           
+
                         </div>
                         <div class="blog-content rounded-bottom p-4">
                             <div class="blog-date">{{ $car->year }}</div>
