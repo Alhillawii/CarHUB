@@ -16,10 +16,7 @@
         <a href="{{ url('carcat') }}" class="nav-item nav-link {{ request()->is('carcat') ? 'active' : '' }}">Our Cars</a>
         <a href="{{ url('contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact</a>
     </div>
-</div>
-
-
-            @if (Route::has('login'))
+    @if (Route::has('login'))
                 @auth
                     @if(Auth::user()->role === 1)
                         <a href="{{ url('/dashboard') }}" class="btn btn-primary rounded-pill py-2 px-4">Dashboard</a>
@@ -39,6 +36,10 @@
                     @endif
                 @endauth
             @endif
+</div>
+
+
+            
         </div>
     </nav>
 </div>

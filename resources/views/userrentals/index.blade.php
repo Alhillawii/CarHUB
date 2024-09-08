@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Rented Cars</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/css/userrentals.css">
     <style>
@@ -75,7 +75,7 @@
         </div>
     </div>
 
-    @include('master.home.foot')
+   
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="/js/search.js"></script>
     <script>

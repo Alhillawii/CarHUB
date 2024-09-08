@@ -26,7 +26,7 @@ class CarReservationController extends Controller
             'car_id' => $car->id,
             'rental_start_date' => $startDate,
             'rental_end_date' => $endDate,
-            'status' => 'reserved',
+            'status' => 'Pending',
         ]);
 
         return redirect()->route('car.details', $car->id);
